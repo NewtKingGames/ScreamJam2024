@@ -1,12 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://b30cg7p0ub3k2"]
+[gd_scene load_steps=8 format=3 uid="uid://b30cg7p0ub3k2"]
 
 [ext_resource type="Script" path="res://scenes/player/state_machine.gd" id="1_op30w"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xyncb"]
+[ext_resource type="Texture2D" uid="uid://ch3jcrps1a87n" path="res://resources/scifigraphics/player/player.png" id="2_jdqkt"]
 [ext_resource type="Script" path="res://scenes/player/player_states/idle_state.gd" id="3_vifah"]
 [ext_resource type="Script" path="res://scenes/player/player_states/walking.gd" id="4_nhb54"]
 [ext_resource type="Script" path="res://scenes/player/interacting.gd" id="5_1aa1w"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oax3e"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytg8p"]
+radius = 64.0
+height = 249.6
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 7
@@ -14,10 +17,11 @@ script = ExtResource("1_xyncb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_oax3e")
+shape = SubResource("CapsuleShape2D_ytg8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
+texture = ExtResource("2_jdqkt")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_op30w")

@@ -10,7 +10,6 @@ var states:= {}
 func init(player: Player) -> void:
 	for child in get_children():
 		if child is PlayerState:
-			print("heres the child!")
 			states[child.state] = child
 			child.transition_requested.connect(_on_transition_requested)
 			child.player = player
@@ -28,7 +27,6 @@ func physics_process(delta: float) -> void:
 		current_state.physics_process(delta)
 
 func _on_transition_requested(from: PlayerState, to: PlayerState.State) -> void:
-	print("transition requested")
 	if from != current_state:
 		return
 	var new_state: PlayerState = states[to]

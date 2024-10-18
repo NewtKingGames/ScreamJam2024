@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="3_4il8c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvwkj"]
+radius = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvwbg"]
+radius = 128.0
 
 [node name="Interactable" type="StaticBody2D"]
 collision_layer = 4
@@ -24,19 +26,19 @@ scale = Vector2(2.0614, 2.0614)
 shape = SubResource("CircleShape2D_cvwbg")
 debug_color = Color(0.773919, 0.432786, 0.249, 0.42)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="InteractablePanel" parent="." instance=ExtResource("3_4il8c")]
+unique_name_in_owner = true
+offset_left = -480.0
+offset_top = -375.0
+offset_right = -480.0
+offset_bottom = -375.0
 
-[node name="InteractablePanel" parent="CanvasLayer" instance=ExtResource("3_4il8c")]
-offset_left = -561.0
-offset_top = -317.0
-offset_right = -561.0
-offset_bottom = -317.0
-
-[node name="InteractLabel" type="Label" parent="CanvasLayer"]
-offset_left = -8.0
-offset_top = -40.0
-offset_right = 32.0
-offset_bottom = -17.0
+[node name="InteractLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -27.0
+offset_top = -353.0
+offset_right = 37.0
+offset_bottom = -304.0
 theme_override_fonts/font = ExtResource("2_guh65")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 48
 text = "'E'"

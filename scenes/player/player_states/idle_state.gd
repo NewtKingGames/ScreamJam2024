@@ -1,12 +1,6 @@
 class_name IdleState
 extends PlayerState
 
-func exit() -> void:
-	pass
-
-func enter() -> void:
-	pass
-
 
 func process(delta: float) -> void:
 	if Input.get_vector("down","up","right","left"):
