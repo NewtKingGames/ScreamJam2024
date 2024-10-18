@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4nsvp7kl23xr"]
+
+[ext_resource type="Script" path="res://scenes/enemies/darkness_enemy.gd" id="1_2xhew"]
+[ext_resource type="AudioStream" uid="uid://nvr76or8uk72" path="res://sounds/giant_walking_fast.mp3" id="2_oapij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umull"]
+
+[node name="DarknessEnemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2xhew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(16.0833, 16.0833)
+shape = SubResource("CircleShape2D_umull")
+
+[node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_oapij")
+volume_db = 1.0
