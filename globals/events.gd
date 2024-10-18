@@ -10,6 +10,6 @@ signal player_entered_darkness
 signal player_exited_darkness
 
 # TODO - add some kind of object to be passed here
-signal player_started_interaction
-signal player_exited_interaction
+signal player_started_interaction(interactable_resource: Interactable)
+signal player_exited_interaction(interactable_resource: Interactable)
 

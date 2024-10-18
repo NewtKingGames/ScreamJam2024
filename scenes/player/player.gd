@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
-var interactable_near: Interactable
+var interactable_near: InteractableNode
 var player_light_count: int = 0 : 
 	set(value):
 		if value == 0:
@@ -29,10 +29,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	state_machine.physics_process(delta)
 
-func entered_interactable_area(interactable: Interactable) -> void:
+func entered_interactable_area(interactable: InteractableNode) -> void:
 	interactable_near = interactable
 
-func exited_interactable_area(interactable: Interactable) -> void: 
+func exited_interactable_area(interactable: InteractableNode) -> void: 
 	interactable_near = null
 
 

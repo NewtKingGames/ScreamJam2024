@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=13 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
 [ext_resource type="PackedScene" uid="uid://bdepptjbqpbne" path="res://scenes/interactables/interactable.tscn" id="2_nwyop"]
 [ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="3_b452g"]
 [ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="4_k3bur"]
+[ext_resource type="Script" path="res://custom_resources/arrow_interactable.gd" id="5_kho4l"]
 [ext_resource type="PackedScene" uid="uid://dnugawnr0jtgr" path="res://scenes/lights/fixed_light.tscn" id="6_nx74r"]
 [ext_resource type="AudioStream" uid="uid://c4faa5d2lwbi5" path="res://sounds/zapsplat_lab_machine_whirr_107536.mp3" id="7_hvalv"]
 [ext_resource type="PackedScene" uid="uid://b4nsvp7kl23xr" path="res://scenes/enemies/darkness_enemy.tscn" id="8_dc1c7"]
@@ -235,6 +236,11 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_8kvnx")
 
+[sub_resource type="Resource" id="Resource_ylalb"]
+script = ExtResource("5_kho4l")
+arrow_inputs = Array[int]([0, 1, 2])
+type = 0
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_4kg0v")
 
@@ -258,12 +264,12 @@ position_smoothing_enabled = true
 
 [node name="Interactable" parent="." instance=ExtResource("2_nwyop")]
 position = Vector2(173, 382)
+interactable_resource = SubResource("Resource_ylalb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InteractablePanel" parent="CanvasLayer" instance=ExtResource("4_k3bur")]
 unique_name_in_owner = true
-visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.8
