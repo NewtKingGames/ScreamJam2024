@@ -1,8 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=6 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
+[ext_resource type="PackedScene" uid="uid://bdepptjbqpbne" path="res://scenes/interactables/interactable.tscn" id="2_nwyop"]
+[ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="3_b452g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
+texture = ExtResource("3_b452g")
+texture_region_size = Vector2i(390, 390)
+97:109/0 = 0
+96:109/0 = 0
+95:108/0 = 0
+94:108/0 = 0
+93:107/0 = 0
+92:107/0 = 0
+91:106/0 = 0
+90:106/0 = 0
+89:105/0 = 0
+88:105/0 = 0
+87:105/0 = 0
+86:104/0 = 0
+85:104/0 = 0
+84:103/0 = 0
+83:103/0 = 0
+82:102/0 = 0
+81:102/0 = 0
+80:101/0 = 0
+79:101/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7nwn0"]
+sources/0 = SubResource("TileSetAtlasSource_8kvnx")
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_8gq07")]
 position = Vector2(319, 171)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Interactable" parent="." instance=ExtResource("2_nwyop")]
+position = Vector2(236, 254)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_7nwn0")
+format = 2

@@ -2,13 +2,16 @@ class_name IdleState
 extends PlayerState
 
 func exit() -> void:
-	print("exiting state")
+	pass
 
 func enter() -> void:
-	print("entering state")
+	pass
 
 
 func process(delta: float) -> void:
-	print("idle process")
 	if Input.get_vector("down","up","right","left"):
 		transition_requested.emit(self, State.WALKING)
+	if Input.is_action_just_pressed("interact") and player.interactable_near:
+		player.interactable_near.player_interacted()
+		transition_requested.emit(self, State.INTERACTING)
+		

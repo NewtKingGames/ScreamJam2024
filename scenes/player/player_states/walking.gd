@@ -10,3 +10,5 @@ func exit() -> void:
 func process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
 	player.velocity = direction * 200
+	if not direction:
+		transition_requested.emit(self, State.IDLE)	

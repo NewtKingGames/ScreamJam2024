@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdepptjbqpbne"]
+
+[ext_resource type="Script" path="res://scenes/interactables/interactable.gd" id="1_mu30h"]
+[ext_resource type="FontFile" uid="uid://b0xlwmopl6yq7" path="res://scenes/pixel_rpg.ttf" id="2_guh65"]
+[ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="3_4il8c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvwkj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvwbg"]
+
+[node name="Interactable" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_mu30h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qvwkj")
+
+[node name="PlayerArea" type="Area2D" parent="." groups=["interactables"]]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+scale = Vector2(2.0614, 2.0614)
+shape = SubResource("CircleShape2D_cvwbg")
+debug_color = Color(0.773919, 0.432786, 0.249, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractablePanel" parent="CanvasLayer" instance=ExtResource("3_4il8c")]
+offset_left = -561.0
+offset_top = -317.0
+offset_right = -561.0
+offset_bottom = -317.0
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer"]
+offset_left = -8.0
+offset_top = -40.0
+offset_right = 32.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource("2_guh65")
+theme_override_font_sizes/font_size = 16
+text = "'E'"
