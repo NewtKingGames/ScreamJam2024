@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var foot_step_sounds: Node2D = $FootStepSounds
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
@@ -40,3 +41,10 @@ func _on_player_entered_light() -> void:
 
 func _on_player_exited_light() -> void:
 	player_light_count -= 1
+
+func play_walk_sound() -> void:
+	# choose random foot noise to play
+	# TODO - add pitch modification
+	var foot_step_audio_player: AudioStreamPlayer2D = foot_step_sounds.get_child(randi_range(0, foot_step_sounds.get_child_count() -1))
+	foot_step_audio_player.pitch_scale = randf_range(.9, 1.00)
+	foot_step_audio_player.play()

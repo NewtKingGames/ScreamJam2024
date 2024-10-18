@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=10 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="3_b452g"]
 [ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="4_k3bur"]
 [ext_resource type="PackedScene" uid="uid://dnugawnr0jtgr" path="res://scenes/lights/fixed_light.tscn" id="6_nx74r"]
+[ext_resource type="AudioStream" uid="uid://c4faa5d2lwbi5" path="res://sounds/zapsplat_lab_machine_whirr_107536.mp3" id="7_hvalv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
 texture = ExtResource("3_b452g")
@@ -275,3 +276,9 @@ position = Vector2(608, 949)
 [node name="FixedLight3" parent="." instance=ExtResource("6_nx74r")]
 position = Vector2(1390, 1036)
 scale = Vector2(1.8493, 1.8493)
+
+[node name="AmbientNoisePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hvalv")
+volume_db = -33.576
+pitch_scale = 0.5
+autoplay = true
