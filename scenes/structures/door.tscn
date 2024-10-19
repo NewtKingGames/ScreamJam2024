@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://do74d6fgat88l"]
+
+[ext_resource type="Script" path="res://scenes/structures/door.gd" id="1_38hty"]
+[ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="1_eca3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md4mp"]
+size = Vector2(20.3212, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n34km"]
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_38hty")
+
+[node name="DoorLeftSide" type="Node2D" parent="."]
+position = Vector2(-215, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorLeftSide"]
+texture = ExtResource("1_eca3k")
+hframes = 7
+vframes = 9
+frame = 53
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DoorLeftSide"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLeftSide/StaticBody2D"]
+position = Vector2(110.459, 0)
+scale = Vector2(9.59189, -2.52796)
+shape = SubResource("RectangleShape2D_md4mp")
+
+[node name="DoorRightSide" type="Node2D" parent="."]
+position = Vector2(215, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorRightSide"]
+texture = ExtResource("1_eca3k")
+hframes = 7
+vframes = 9
+frame = 55
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DoorRightSide"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRightSide/StaticBody2D"]
+position = Vector2(-106, -2.08165e-12)
+scale = Vector2(11.1541, 2.49423)
+shape = SubResource("RectangleShape2D_n34km")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.35761, 0.980082)
