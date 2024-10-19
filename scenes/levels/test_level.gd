@@ -9,8 +9,8 @@ func _ready() -> void:
 	Events.player_started_interaction.connect(_on_player_started_interaction)
 	Events.player_exited_interaction.connect(_on_player_exited_interaction)
 
-func _on_player_started_interaction(interactable: Interactable) -> void:
-	interactable_panel.show_panel(interactable)
+func _on_player_started_interaction(interactable_node: InteractableNode) -> void:
+	interactable_panel.show_panel(interactable_node)
 
-func _on_player_exited_interaction(interactable: Interactable) -> void:
+func _on_player_exited_interaction(interactable_node: InteractableNode) -> void:
 	interactable_panel.hide_panel()

@@ -3,6 +3,9 @@ extends StaticBody2D
 
 
 @export var interactable_resource: Interactable
+@export var effect: Effect
+@export var target: Node2D
+
 
 @onready var player_area: Area2D = $PlayerArea
 @onready var interact_label: Label = %InteractLabel
@@ -29,7 +32,7 @@ func _on_player_exited_area(body: Node2D) -> void:
 		player.exited_interactable_area(self)
 
 func player_interacted() -> void:
-	Events.player_started_interaction.emit(interactable_resource)
+	Events.player_started_interaction.emit(self)
 
 func player_exit_interaction() -> void:
-	Events.player_exited_interaction.emit(interactable_resource)
+	Events.player_exited_interaction.emit(self)

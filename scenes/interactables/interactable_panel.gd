@@ -9,25 +9,28 @@ extends Panel
 var arrow_interactable_panel_scene: PackedScene = load("res://scenes/interactables/arrow_interactable_panel.tscn")
 
 
-var interactable_resource: Interactable
+var current_interactable_resource: Interactable
+var current_interactable_node: InteractableNode 
 var active_child_node: Node
 var is_active: bool = false
 
-func show_panel(interactable: Interactable) -> void:
-	show()
+func show_panel(interactable: InteractableNode) -> void:
+	current_interactable_node = interactable
 	is_active = true
-	if interactable.type == Interactable.InteractableType.ARROW:
+	if current_interactable_node.interactable_resource.type == Interactable.InteractableType.ARROW:
 		# Duplicate the resource to reset progress
-		interactable_resource = interactable.duplicate(true) as ArrowInteractable
+		current_interactable_resource = current_interactable_node.interactable_resource.duplicate(true) as ArrowInteractable
 		var child_scene: ArrowInteractablePanel = arrow_interactable_panel_scene.instantiate()
 		add_child(child_scene)
-		child_scene.init(interactable_resource)
+		child_scene.init(current_interactable_resource)
 		#child_scene.arrow_resource = interactable_resource
 		active_child_node = child_scene
-	interactable_resource.input_complete.connect(_on_resource_input_completed)
+	current_interactable_resource.input_complete.connect(_on_resource_input_completed)
+	show()
 
 func _on_resource_input_completed():
 	print("the resource completed!")
+	# now we have access to the node object and can do somethign with it
 	hide_panel()
 	
 
