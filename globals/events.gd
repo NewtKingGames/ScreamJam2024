@@ -13,3 +13,4 @@ signal player_exited_darkness
 signal player_started_interaction(interactable_node: InteractableNode)
 signal player_exited_interaction(interactable_node: InteractableNode)
 
+signal interaction_completed(interactable_node: Interactable)

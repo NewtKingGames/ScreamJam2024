@@ -18,17 +18,18 @@ func _ready():
 		door_left_side.scale.x = close_scale
 		door_right_side.scale.x = close_scale
 
-func open_door():
+func open():
+	print("door is trying to be opened")
 	if is_open:
 		return
-	toggle_door()
+	toggle()
 
-func close_door():
+func close():
 	if not is_open:
 		return
-	toggle_door()
+	toggle()
 
-func toggle_door():
+func toggle():
 	var tween = create_tween()
 	tween.set_parallel(true)
 	if is_open:

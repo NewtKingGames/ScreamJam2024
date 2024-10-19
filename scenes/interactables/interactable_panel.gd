@@ -32,6 +32,7 @@ func _on_resource_input_completed():
 	print("the resource completed!")
 	# now we have access to the node object and can do somethign with it
 	current_interactable_node.do_effect()
+	Events.interaction_completed.emit(current_interactable_node)
 	hide_panel()
 	
 

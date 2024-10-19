@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=18 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnugawnr0jtgr" path="res://scenes/lights/fixed_light.tscn" id="6_nx74r"]
 [ext_resource type="AudioStream" uid="uid://c4faa5d2lwbi5" path="res://sounds/zapsplat_lab_machine_whirr_107536.mp3" id="7_hvalv"]
 [ext_resource type="PackedScene" uid="uid://bqncdno4rb7be" path="res://scenes/lights/togglable_light.tscn" id="10_7f83n"]
+[ext_resource type="PackedScene" uid="uid://do74d6fgat88l" path="res://scenes/structures/door.tscn" id="11_gs1f8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
 texture = ExtResource("3_b452g")
@@ -246,7 +247,17 @@ type = 0
 script = ExtResource("6_61ajw")
 method_name = "turn_on"
 
+[sub_resource type="Resource" id="Resource_pjbm3"]
+script = ExtResource("5_kho4l")
+arrow_inputs = Array[int]([0, 1, 0, 0])
+type = 0
+
+[sub_resource type="Resource" id="Resource_t5ifn"]
+script = ExtResource("6_61ajw")
+method_name = "open"
+
 [node name="TestLevel" type="Node2D"]
+scale = Vector2(0.998664, 1)
 script = ExtResource("1_4kg0v")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -258,7 +269,7 @@ layer_0/tile_data = PackedInt32Array(262152, 65536, 1, 262151, 65536, 1, 262150,
 layer_1/name = "Outer Walls"
 layer_1/tile_data = PackedInt32Array(131076, 327680, 1, 65540, 327680, 1, 4, 327680, 1, 196609, 262144, 2, 196610, 262144, 2, 196611, 262144, 2, 196612, 327680, 2, -131071, 262144, 2, -131069, 262144, 2)
 layer_2/name = "Inner Walls"
-layer_2/tile_data = PackedInt32Array(-131070, 393216, 7)
+layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("1_8gq07")]
 position = Vector2(568, 674)
@@ -272,6 +283,13 @@ position = Vector2(173, 382)
 interactable_resource = SubResource("Resource_ylalb")
 effect = SubResource("Resource_vo6ct")
 target = NodePath("../TogglableLight")
+
+[node name="Interactable2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_nwyop")]
+position = Vector2(1311.75, -430)
+scale = Vector2(1, 1)
+interactable_resource = SubResource("Resource_pjbm3")
+effect = SubResource("Resource_t5ifn")
+target = NodePath("../Door")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -302,3 +320,7 @@ enabled = false
 visible = false
 energy = 0.8
 blend_mode = 1
+
+[node name="Door" parent="." instance=ExtResource("11_gs1f8")]
+position = Vector2(974.301, -583)
+scale = Vector2(1, 1.12)
