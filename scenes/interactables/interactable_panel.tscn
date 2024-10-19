@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwtw0o0h4qxo7"]
+[gd_scene load_steps=5 format=3 uid="uid://bwtw0o0h4qxo7"]
 
 [ext_resource type="FontFile" uid="uid://b0xlwmopl6yq7" path="res://scenes/pixel_rpg.ttf" id="1_20g6e"]
+[ext_resource type="Script" path="res://scenes/interactables/interactable_panel.gd" id="2_tmw37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cvlg"]
 content_margin_left = 0.0
@@ -54,3 +55,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_1drio")
+script = ExtResource("2_tmw37")
