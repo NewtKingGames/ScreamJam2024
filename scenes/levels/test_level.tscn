@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=12 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://custom_resources/arrow_interactable.gd" id="5_kho4l"]
 [ext_resource type="PackedScene" uid="uid://dnugawnr0jtgr" path="res://scenes/lights/fixed_light.tscn" id="6_nx74r"]
 [ext_resource type="AudioStream" uid="uid://c4faa5d2lwbi5" path="res://sounds/zapsplat_lab_machine_whirr_107536.mp3" id="7_hvalv"]
-[ext_resource type="PackedScene" uid="uid://b4nsvp7kl23xr" path="res://scenes/enemies/darkness_enemy.tscn" id="8_dc1c7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
 texture = ExtResource("3_b452g")
@@ -256,7 +255,7 @@ layer_2/name = "Inner Walls"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("1_8gq07")]
-position = Vector2(1364, 1023)
+position = Vector2(568, 674)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
@@ -290,6 +289,3 @@ stream = ExtResource("7_hvalv")
 volume_db = -33.576
 pitch_scale = 0.5
 autoplay = true
-
-[node name="DarknessEnemy" parent="." instance=ExtResource("8_dc1c7")]
-position = Vector2(1541, 123)

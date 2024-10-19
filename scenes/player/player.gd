@@ -9,10 +9,8 @@ var interactable_near: InteractableNode
 var player_light_count: int = 0 : 
 	set(value):
 		if value == 0:
-			print("player in complete darkness")
 			Events.player_entered_darkness.emit()
 		elif value > 0 and player_light_count == 0:
-			print("player has exited darkness")
 			Events.player_exited_darkness.emit()
 		player_light_count = value
 

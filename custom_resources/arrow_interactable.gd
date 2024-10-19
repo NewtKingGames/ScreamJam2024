@@ -4,18 +4,20 @@ extends Interactable
 enum ArrowInputType {UP, DOWN, LEFT, RIGHT}
 
 @export var arrow_inputs: Array[ArrowInputType] = []
+var current_index = 0
 
-
-func handle_input(event: InputEvent) -> bool:
-	if arrow_inputs.size() == 0:
-		return false
-	var next_arrow_input: ArrowInputType = arrow_inputs[arrow_inputs.size()-1] 
+# -1 indicates the input was incorrect or that the
+func handle_input(event: InputEvent) -> int:
+	if current_index == arrow_inputs.size():
+		return -1
+	var next_arrow_input: ArrowInputType = arrow_inputs[current_index] 
 	if does_input_match(event, next_arrow_input):
-		arrow_inputs.pop_back()
-		return true
-	return false
+		var index_to_return = current_index
+		current_index += 1
+		return index_to_return
+	return -1
 
-func does_input_match(event: InputEvent, arrow: ArrowInputType) -> bool:
+func does_input_match(event: InputEvent, arrow: ArrowInputType) -> bool:     
 	if event.is_action_pressed("left") and arrow == ArrowInputType.LEFT:
 		return true 
 	if event.is_action_pressed("right") and arrow == ArrowInputType.RIGHT:

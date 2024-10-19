@@ -33,11 +33,9 @@ func _process(delta: float) -> void:
 		
 # TODO - add some kind of delay before the chase starts and add some visual/audio queue that the player walked into the dark
 func _on_player_entered_darkness() -> void:
-	print("entering chase state")
 	enter_chase()
 
 func _on_player_exited_darkness() -> void:
-	print("exiting chase state")
 	exit_chase()
 
 func enter_chase() -> void:

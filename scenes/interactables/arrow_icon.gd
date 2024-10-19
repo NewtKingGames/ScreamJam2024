@@ -6,13 +6,11 @@ const GREEN_ARROW_V = preload("res://sprites/green_arrow_v.png")
 const RED_ARROW_H = preload("res://sprites/red_arrow_h.png")
 const RED_ARROW_V = preload("res://sprites/red_arrow_v.png")
 @export var arrow_direction: ArrowInteractable.ArrowInputType
-var inputted: bool = false
 
 func _ready():
 	set_icon(false)
 
 func set_icon(inputted: bool) -> void:
-	print(arrow_direction)
 	if inputted and arrow_direction == ArrowInteractable.ArrowInputType.UP:
 		texture = GREEN_ARROW_V
 	if inputted and arrow_direction == ArrowInteractable.ArrowInputType.DOWN:
