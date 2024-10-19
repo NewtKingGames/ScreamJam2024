@@ -38,6 +38,8 @@ func _on_resource_input_completed():
 
 func hide_panel() -> void:
 	hide()
+	for child in get_children():
+		child.queue_free()
 	is_active = false
  
 func _process(delta: float) -> void:
