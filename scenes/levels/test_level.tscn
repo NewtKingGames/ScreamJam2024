@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=22 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bqncdno4rb7be" path="res://scenes/lights/togglable_light.tscn" id="10_7f83n"]
 [ext_resource type="PackedScene" uid="uid://do74d6fgat88l" path="res://scenes/structures/door.tscn" id="11_gs1f8"]
 [ext_resource type="Script" path="res://custom_resources/button_mash_interactable.gd" id="12_71rwb"]
+[ext_resource type="PackedScene" uid="uid://b4nsvp7kl23xr" path="res://scenes/enemies/darkness_enemy.tscn" id="13_xcbyk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
 texture = ExtResource("3_b452g")
@@ -247,6 +248,7 @@ type = 0
 [sub_resource type="Resource" id="Resource_vo6ct"]
 script = ExtResource("6_61ajw")
 method_name = "turn_on"
+is_repeatable = false
 
 [sub_resource type="Resource" id="Resource_pjbm3"]
 script = ExtResource("5_kho4l")
@@ -256,6 +258,7 @@ type = 0
 [sub_resource type="Resource" id="Resource_t5ifn"]
 script = ExtResource("6_61ajw")
 method_name = "open"
+is_repeatable = true
 
 [sub_resource type="Resource" id="Resource_03far"]
 script = ExtResource("12_71rwb")
@@ -268,6 +271,7 @@ type = 1
 [sub_resource type="Resource" id="Resource_3xygs"]
 script = ExtResource("6_61ajw")
 method_name = "open"
+is_repeatable = true
 
 [node name="TestLevel" type="Node2D"]
 scale = Vector2(0.998664, 1)
@@ -285,7 +289,7 @@ layer_2/name = "Inner Walls"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("1_8gq07")]
-position = Vector2(597.798, -104)
+position = Vector2(1445.93, 1040)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
@@ -343,3 +347,6 @@ position = Vector2(576.77, -464)
 interactable_resource = SubResource("Resource_03far")
 effect = SubResource("Resource_3xygs")
 target = NodePath("../Door")
+
+[node name="DarknessEnemy" parent="." instance=ExtResource("13_xcbyk")]
+position = Vector2(1339.79, 106)
