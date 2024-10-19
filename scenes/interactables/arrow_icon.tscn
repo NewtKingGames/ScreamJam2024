@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyq7l1wa3ajuj"]
+
+[ext_resource type="Texture2D" uid="uid://cfkkeqhaeu7jv" path="res://sprites/green_arrow.png" id="1_c6g8c"]
+[ext_resource type="Script" path="res://scenes/interactables/arrow_icon.gd" id="1_w14uy"]
+
+[node name="ArrowIcon" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_c6g8c")
+script = ExtResource("1_w14uy")
