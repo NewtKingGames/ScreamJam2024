@@ -4,7 +4,7 @@ extends HBoxContainer
 
 
 const MEDIUM_BEEP: AudioStream = preload("res://sounds/medium_beep.mp3")
-const DOUBLE_BEEP: AudioStream = preload("res://sounds/double_beep.wav")
+const ERROR_ONE = preload("res://sounds/error_one.mp3")
 
 # This class is just responsible for handing the input to the resource and showing visual effects
 @export var arrow_resource: ArrowInteractable
@@ -28,9 +28,14 @@ func init(arrow_resource: ArrowInteractable) -> void:
 		index+=1
 
 func handle_input(input: InputEvent):
+	var is_any_direction_pressed: bool = input.is_action_pressed("left") or input.is_action_pressed("right") or input.is_action_pressed("up") or input.is_action_pressed("down")
+	if not is_any_direction_pressed:
+		return
 	var index_from_handle_input = arrow_resource.handle_input(input)
 	if index_from_handle_input != -1:
 		print("corret input!")
 		SfxPlayer.play(MEDIUM_BEEP, false, randf_range(0.95, 1.05))
 		arrow_icon_index = index_from_handle_input
 		get_child(arrow_icon_index).set_icon(true)
+	else:
+		SfxPlayer.play(ERROR_ONE)
