@@ -2,10 +2,9 @@ class_name ArrowInteractablePanel
 extends HBoxContainer
 # CONSIDER EXTENDING SOME BASE CLASS HERE
 
-# TODO  refactor all of this to be in a global class
-#@onready var correct_input: AudioStreamPlayer = $CorrectInput
-#@onready var incorrect_input: AudioStreamPlayer = $IncorrectInput
 
+const MEDIUM_BEEP: AudioStream = preload("res://sounds/medium_beep.mp3")
+const DOUBLE_BEEP: AudioStream = preload("res://sounds/double_beep.wav")
 
 # This class is just responsible for handing the input to the resource and showing visual effects
 @export var arrow_resource: ArrowInteractable
@@ -31,7 +30,7 @@ func init(arrow_resource: ArrowInteractable) -> void:
 func handle_input(input: InputEvent):
 	var index_from_handle_input = arrow_resource.handle_input(input)
 	if index_from_handle_input != -1:
-		#correct_input.pitch_scale = randf_range(.8, 1.10)
-		#correct_input.play()
+		print("corret input!")
+		SfxPlayer.play(MEDIUM_BEEP, false, randf_range(0.95, 1.05))
 		arrow_icon_index = index_from_handle_input
 		get_child(arrow_icon_index).set_icon(true)
