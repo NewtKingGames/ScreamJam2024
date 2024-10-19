@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=15 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="3_b452g"]
 [ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="4_k3bur"]
 [ext_resource type="Script" path="res://custom_resources/arrow_interactable.gd" id="5_kho4l"]
+[ext_resource type="Script" path="res://custom_resources/effect.gd" id="6_61ajw"]
 [ext_resource type="PackedScene" uid="uid://dnugawnr0jtgr" path="res://scenes/lights/fixed_light.tscn" id="6_nx74r"]
 [ext_resource type="AudioStream" uid="uid://c4faa5d2lwbi5" path="res://sounds/zapsplat_lab_machine_whirr_107536.mp3" id="7_hvalv"]
+[ext_resource type="PackedScene" uid="uid://bqncdno4rb7be" path="res://scenes/lights/togglable_light.tscn" id="10_7f83n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
 texture = ExtResource("3_b452g")
@@ -240,6 +242,10 @@ script = ExtResource("5_kho4l")
 arrow_inputs = Array[int]([0, 1, 2])
 type = 0
 
+[sub_resource type="Resource" id="Resource_vo6ct"]
+script = ExtResource("6_61ajw")
+method_name = "turn_on"
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_4kg0v")
 
@@ -261,9 +267,11 @@ position = Vector2(568, 674)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
-[node name="Interactable" parent="." instance=ExtResource("2_nwyop")]
+[node name="Interactable" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_nwyop")]
 position = Vector2(173, 382)
 interactable_resource = SubResource("Resource_ylalb")
+effect = SubResource("Resource_vo6ct")
+target = NodePath("../TogglableLight")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -289,3 +297,6 @@ stream = ExtResource("7_hvalv")
 volume_db = -33.576
 pitch_scale = 0.5
 autoplay = true
+
+[node name="TogglableLight" parent="." instance=ExtResource("10_7f83n")]
+enabled = false

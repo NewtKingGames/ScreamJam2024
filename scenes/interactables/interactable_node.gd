@@ -36,3 +36,9 @@ func player_interacted() -> void:
 
 func player_exit_interaction() -> void:
 	Events.player_exited_interaction.emit(self)
+
+
+func do_effect() -> void:
+	if not target:
+		return
+	effect.perform_action(target)
