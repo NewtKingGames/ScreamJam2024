@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ug0exyqsbq0j"]
+[gd_scene load_steps=6 format=3 uid="uid://ug0exyqsbq0j"]
 
+[ext_resource type="Theme" uid="uid://hlgla8l3scju" path="res://themes/interactable_panel.tres" id="1_b7dkr"]
 [ext_resource type="Script" path="res://scenes/interactables/arrow_interactable_panel.gd" id="1_pm3yv"]
 [ext_resource type="Script" path="res://custom_resources/arrow_interactable.gd" id="2_c0jbp"]
+[ext_resource type="PackedScene" uid="uid://dyq7l1wa3ajuj" path="res://scenes/interactables/arrow_icon.tscn" id="3_blolk"]
 
 [sub_resource type="Resource" id="Resource_560c0"]
 script = ExtResource("2_c0jbp")
@@ -14,6 +16,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_b7dkr")
 alignment = 1
 script = ExtResource("1_pm3yv")
 arrow_resource = SubResource("Resource_560c0")
+
+[node name="ArrowIcon" parent="." instance=ExtResource("3_blolk")]
+layout_mode = 2
+
+[node name="ArrowIcon2" parent="." instance=ExtResource("3_blolk")]
+layout_mode = 2
+arrow_direction = 1
+
+[node name="ArrowIcon3" parent="." instance=ExtResource("3_blolk")]
+layout_mode = 2
+arrow_direction = 3

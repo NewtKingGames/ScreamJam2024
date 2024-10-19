@@ -5,6 +5,9 @@ extends Node2D
 
 @onready var door_left_side: Node2D = $DoorLeftSide
 @onready var door_right_side: Node2D = $DoorRightSide
+@onready var door_open_player: AudioStreamPlayer2D = $DoorOpenPlayer
+@onready var door_close_player: AudioStreamPlayer2D = $DoorClosePlayer
+
 
 # X scale for closed and open state
 var close_scale: float = 1.0
@@ -33,10 +36,12 @@ func toggle():
 	tween.set_parallel(true)
 	if is_open:
 		tween.tween_property(door_left_side, "scale", Vector2(close_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
-		tween.tween_property(door_right_side, "scale", Vector2(close_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tween.tween_property(door_right_side, "scaleaaaa", Vector2(close_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		door_close_player.play()
 		#Play door closing effects
 	else:
 		tween.tween_property(door_left_side, "scale", Vector2(open_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.tween_property(door_right_side, "scale", Vector2(open_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		door_open_player.play()
 		#play door opening effects
 	is_open = not is_open

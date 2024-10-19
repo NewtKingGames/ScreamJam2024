@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://do74d6fgat88l"]
+[gd_scene load_steps=6 format=3 uid="uid://do74d6fgat88l"]
 
 [ext_resource type="Script" path="res://scenes/structures/door.gd" id="1_38hty"]
 [ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="1_eca3k"]
+[ext_resource type="AudioStream" uid="uid://vnevs1ptbcyk" path="res://sounds/sci fi door sound effect.mp3" id="3_abwus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md4mp"]
 size = Vector2(20.3212, 20)
@@ -49,3 +50,9 @@ shape = SubResource("RectangleShape2D_n34km")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1.35761, 0.980082)
+
+[node name="DoorOpenPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_abwus")
+
+[node name="DoorClosePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_abwus")
