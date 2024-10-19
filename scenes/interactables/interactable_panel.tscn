@@ -1,52 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwtw0o0h4qxo7"]
+[gd_scene load_steps=3 format=3 uid="uid://bwtw0o0h4qxo7"]
 
-[ext_resource type="FontFile" uid="uid://b0xlwmopl6yq7" path="res://scenes/pixel_rpg.ttf" id="1_20g6e"]
+[ext_resource type="Theme" uid="uid://hlgla8l3scju" path="res://themes/interactable_panel.tres" id="1_644qy"]
 [ext_resource type="Script" path="res://scenes/interactables/interactable_panel.gd" id="2_tmw37"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cvlg"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.027451, 0.0666667, 0.329412, 0.67451)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="Theme" id="Theme_1drio"]
-Button/fonts/font = null
-CheckBox/fonts/font = null
-CheckButton/fonts/font = null
-CodeEdit/fonts/font = null
-ColorPickerButton/fonts/font = null
-Fonts/fonts/large = ExtResource("1_20g6e")
-Fonts/fonts/normal = ExtResource("1_20g6e")
-GraphNodeTitleLabel/fonts/font = null
-ItemList/fonts/font = null
-Label/fonts/font = null
-LineEdit/fonts/font = null
-LinkButton/fonts/font = null
-MenuBar/fonts/font = null
-MenuButton/fonts/font = null
-OptionButton/fonts/font = null
-Panel/styles/panel = SubResource("StyleBoxFlat_8cvlg")
-PopupMenu/fonts/font = null
-PopupMenu/fonts/font_separator = null
-ProgressBar/fonts/font = null
-RichTextLabel/fonts/bold_font = null
-RichTextLabel/fonts/bold_italics_font = null
-RichTextLabel/fonts/italics_font = null
-RichTextLabel/fonts/mono_font = null
-RichTextLabel/fonts/normal_font = null
-TabBar/fonts/font = null
-TabContainer/fonts/font = null
-TextEdit/fonts/font = null
-TooltipLabel/fonts/font = null
-Tree/fonts/font = null
-Tree/fonts/title_button_font = null
-Window/fonts/title_font = null
 
 [node name="InteractablePanel" type="Panel"]
 anchors_preset = 15
@@ -54,5 +9,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_1drio")
+theme = ExtResource("1_644qy")
 script = ExtResource("2_tmw37")
