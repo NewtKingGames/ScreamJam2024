@@ -14,6 +14,10 @@ func handle_input(event: InputEvent) -> int:
 	if does_input_match(event, next_arrow_input):
 		var index_to_return = current_index
 		current_index += 1
+		if (current_index == arrow_inputs.size()):
+			# TODO - conisder calling this function from the parent?
+			# I'm worried about the timing
+			completed_input()
 		return index_to_return
 	return -1
 

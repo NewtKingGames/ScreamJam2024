@@ -14,8 +14,6 @@ var active_child_node: Node
 var is_active: bool = false
 
 func show_panel(interactable: Interactable) -> void:
-	# Duplicate the resource to reset progress
-	#interactable_resource = interactable.duplicate(true)
 	show()
 	is_active = true
 	if interactable.type == Interactable.InteractableType.ARROW:
@@ -26,6 +24,12 @@ func show_panel(interactable: Interactable) -> void:
 		child_scene.init(interactable_resource)
 		#child_scene.arrow_resource = interactable_resource
 		active_child_node = child_scene
+	interactable_resource.input_complete.connect(_on_resource_input_completed)
+
+func _on_resource_input_completed():
+	print("the resource completed!")
+	hide_panel()
+	
 
 func hide_panel() -> void:
 	hide()
