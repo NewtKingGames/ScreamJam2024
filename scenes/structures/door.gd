@@ -19,7 +19,6 @@ func _ready():
 		door_right_side.scale.x = close_scale
 
 func open():
-	print("door is trying to be opened")
 	if is_open:
 		return
 	toggle()

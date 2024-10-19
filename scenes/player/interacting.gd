@@ -17,5 +17,4 @@ func process(delta: float) -> void:
 # subscribe to the signal when a interactable is completed in order to exit this state
 func _on_interaction_completed(interactable: InteractableNode) -> void:
 	# TODO - this might be problematic...
-	print("exiting state")
 	transition_requested.emit(self, State.IDLE)
