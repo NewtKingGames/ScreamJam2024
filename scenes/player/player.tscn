@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b30cg7p0ub3k2"]
+[gd_scene load_steps=13 format=3 uid="uid://b30cg7p0ub3k2"]
 
 [ext_resource type="Script" path="res://scenes/player/state_machine.gd" id="1_op30w"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xyncb"]
@@ -9,10 +9,14 @@
 [ext_resource type="AudioStream" uid="uid://c18v3wsbdtwte" path="res://sounds/footstep_one.mp3" id="7_d8jw7"]
 [ext_resource type="AudioStream" uid="uid://3h4fuwfm1o0n" path="res://sounds/footstep_three.mp3" id="8_hsjmh"]
 [ext_resource type="AudioStream" uid="uid://cyb0eyra02864" path="res://sounds/footstep_two.mp3" id="9_ioore"]
+[ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="10_o4hhl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytg8p"]
 radius = 64.0
 height = 249.6
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jdo6y"]
+polygon = PackedVector2Array(-7, -57, 26, -25, 90, 2, 97, 9, 98, 30, 87, 39, 60, 52, 24, 52, 3, 44, -28, 57, -63, 58, -88, 27, -98, -11, -87, -45, -60, -54)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 7
@@ -54,3 +58,10 @@ volume_db = -6.467
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="FootStepSounds"]
 stream = ExtResource("9_ioore")
 volume_db = -6.467
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jdo6y")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("10_o4hhl")
+texture_scale = 3.0

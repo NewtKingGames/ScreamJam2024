@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl0l8sm6o42cd"]
+
+[ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_wk3ol"]
+[ext_resource type="PackedScene" uid="uid://bbwelpu3o6atv" path="res://scenes/structures/bed.tscn" id="2_k1cmf"]
+[ext_resource type="Script" path="res://scenes/levels/first_level.gd" id="2_vstng"]
+[ext_resource type="PackedScene" uid="uid://do74d6fgat88l" path="res://scenes/structures/door.tscn" id="3_ph8jf"]
+[ext_resource type="PackedScene" uid="uid://dsscgxgne6rde" path="res://scenes/lights/simple_light.tscn" id="4_ks81w"]
+[ext_resource type="PackedScene" uid="uid://bdepptjbqpbne" path="res://scenes/interactables/interactable.tscn" id="5_kt0m2"]
+[ext_resource type="AudioStream" uid="uid://bddrse6dbdup7" path="res://sounds/emergency_alarm.mp3" id="7_4upeu"]
+
+[node name="FirstLevel" instance=ExtResource("1_wk3ol")]
+script = ExtResource("2_vstng")
+
+[node name="TileMap" parent="." index="0"]
+position = Vector2(-1.00134, -1)
+layer_0/tile_data = PackedInt32Array(65535, 65536, 1, 0, 65536, 1, 1, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 5, 65536, 1, 6, 65536, 1, 7, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 327684, 65536, 1, 327683, 65536, 1, 327682, 65536, 1, 327681, 65536, 1, 327680, 65536, 1, 393215, 65536, 1, 327679, 65536, 1, 262143, 65536, 1, 196607, 65536, 1, 131071, 65536, 1, 262145, 65536, 1, 196609, 65536, 1, 131073, 65536, 1, 65537, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 196610, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 196611, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 131076, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 196613, 65536, 1, 131077, 65536, 1, 65541, 65536, 1, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 1, 262150, 65536, 1, 458751, 65536, 2, 393216, 65536, 2, 393217, 65536, 2, 393218, 65536, 2, 393219, 65536, 2, 393220, 65536, 2, 393221, 65536, 2, 393222, 65536, 2, 393223, 65536, 2, 327688, 131072, 1, 262152, 131072, 1, 196616, 131072, 1, 131080, 131072, 1, 65544, 131072, 1, 8, 131072, 1, 393224, 131072, 2)
+layer_1/name = "Inner Walls"
+layer_1/tile_data = PackedInt32Array(393221, 327680, 8, 327685, 65536, 6, 262149, 65536, 6, 196613, 65536, 6, 131077, 131072, 7, 327681, 65536, 6, 262145, 65536, 6, 196609, 65536, 6, 393217, 327680, 8, 131073, 131072, 7, 131074, 0, 6, 131076, 0, 6)
+layer_2/name = "Outer Walls"
+layer_2/tile_data = PackedInt32Array(393219, 262144, 2, 393218, 262144, 2, 393217, 262144, 2, 393216, 262144, 2, 458751, 262144, 2, 393220, 262144, 2, 393221, 262144, 2, 393222, 262144, 2, 393223, 262144, 2, 393224, 327680, 2)
+
+[node name="Player" parent="." index="1"]
+position = Vector2(1464.96, 2252)
+rotation = -1.58788
+
+[node name="AmbientNoisePlayer" parent="." index="3"]
+autoplay = false
+
+[node name="DirectionalLight2D" parent="." index="4"]
+visible = true
+energy = 1.0
+
+[node name="Bed" parent="." index="5" instance=ExtResource("2_k1cmf")]
+position = Vector2(1773.37, 2221)
+rotation = 1.57079
+scale = Vector2(0.736768, 0.736768)
+
+[node name="Door" parent="." index="6" instance=ExtResource("3_ph8jf")]
+position = Vector2(1363.82, 976)
+
+[node name="Interactable" parent="." index="7" instance=ExtResource("5_kt0m2")]
+position = Vector2(681.911, 2360)
+rotation = -1.57079
+
+[node name="InteractLabel" parent="Interactable" index="4"]
+offset_left = 153.0
+offset_top = -32.0431
+offset_right = 217.0
+offset_bottom = 16.9569
+rotation = 1.57079
+
+[node name="AlarmSound" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource("7_4upeu")
+autoplay = true
+
+[node name="SimpleLights" type="Node2D" parent="." index="9"]
+
+[node name="SimpleLight" parent="SimpleLights" index="0" instance=ExtResource("4_ks81w")]
+position = Vector2(604.808, 1911)
+rotation = -1.57079
+
+[node name="SimpleLight2" parent="SimpleLights" index="1" instance=ExtResource("4_ks81w")]
+position = Vector2(2102.81, 1922)
+rotation = 1.5708
+
+[node name="SimpleLight3" parent="SimpleLights" index="2" instance=ExtResource("4_ks81w")]
+position = Vector2(764.021, 995)
+
+[node name="SimpleLight4" parent="SimpleLights" index="3" instance=ExtResource("4_ks81w")]
+position = Vector2(2014.69, 995)
+
+[editable path="Interactable"]

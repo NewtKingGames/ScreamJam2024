@@ -1,3 +1,4 @@
+class_name Level
 extends Node2D
 
 
@@ -19,7 +20,6 @@ func _on_player_started_interaction(interactable_node: InteractableNode) -> void
 
 func _on_player_exited_interaction(interactable_node: InteractableNode) -> void:
 	interactable_panel.hide_panel()
-
 
 func player_exited_level():
 	print("player exited level")
