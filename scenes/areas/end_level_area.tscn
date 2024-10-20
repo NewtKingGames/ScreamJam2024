@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj3bleqx38o6h"]
+
+[ext_resource type="Script" path="res://scenes/areas/end_level_area.gd" id="1_ygs3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u3vo"]
+
+[node name="EndLevelArea" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_ygs3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.56, 1.24)
+shape = SubResource("RectangleShape2D_4u3vo")

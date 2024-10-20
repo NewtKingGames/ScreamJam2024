@@ -12,6 +12,7 @@ func _ready() -> void:
 	interactable_panel.hide()
 	Events.player_started_interaction.connect(_on_player_started_interaction)
 	Events.player_exited_interaction.connect(_on_player_exited_interaction)
+	Events.player_exited_level.connect(player_exited_level)
 
 func _on_player_started_interaction(interactable_node: InteractableNode) -> void:
 	interactable_panel.show_panel(interactable_node)
