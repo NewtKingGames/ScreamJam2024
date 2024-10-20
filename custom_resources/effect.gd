@@ -11,3 +11,7 @@ func perform_action(target: Node2D):
 		print("SOMETHING WENT WRONG IN EFFECT")
 		return
 	target.call(method_name)
+
+func perform_actions(targets: Array[Node2D]):
+	for target in targets:
+		perform_action(target)

@@ -5,7 +5,7 @@ const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
 
 @export var interactable_resource: Interactable
 @export var effect: Effect
-@export var target: Node2D
+@export var targets: Array[Node2D]
 
 @onready var interactable_light: PointLight2D = $interactable_light
 @onready var player_area: Area2D = $PlayerArea
@@ -45,8 +45,8 @@ func player_exit_interaction() -> void:
 	Events.player_exited_interaction.emit(self)
 
 func do_effect() -> void:
-	if not target:
+	if not targets:
 		return
-	effect.perform_action(target)
+	effect.perform_actions(targets)
 	if not effect.is_repeatable:
 		is_interactable = false

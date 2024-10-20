@@ -383,17 +383,17 @@ position = Vector2(1445.93, 1040)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
-[node name="Interactable" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_nwyop")]
-position = Vector2(173, 382)
+[node name="Interactable" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nwyop")]
+position = Vector2(177.237, 382)
 interactable_resource = SubResource("Resource_ylalb")
 effect = SubResource("Resource_vo6ct")
-target = NodePath("../TogglableLight")
+targets = [NodePath("../TogglableLight")]
 
-[node name="Interactable2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_nwyop")]
+[node name="Interactable2" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nwyop")]
 position = Vector2(1311.75, -430)
 interactable_resource = SubResource("Resource_pjbm3")
 effect = SubResource("Resource_t5ifn")
-target = NodePath("../Door")
+targets = [NodePath("../Door")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -428,11 +428,11 @@ blend_mode = 1
 position = Vector2(974.301, -583)
 scale = Vector2(1, 1.12)
 
-[node name="ButtonMashInteractable" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_nwyop")]
+[node name="ButtonMashInteractable" parent="." node_paths=PackedStringArray("targets") instance=ExtResource("2_nwyop")]
 position = Vector2(596.797, -513)
 interactable_resource = SubResource("Resource_03far")
 effect = SubResource("Resource_3xygs")
-target = NodePath("../Door")
+targets = [NodePath("../Door")]
 
 [node name="DarknessEnemy" parent="." instance=ExtResource("13_xcbyk")]
 position = Vector2(1339.79, 106)
