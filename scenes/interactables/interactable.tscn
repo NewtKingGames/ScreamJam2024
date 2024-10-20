@@ -48,7 +48,8 @@ offset_right = 37.0
 offset_bottom = -304.0
 theme_override_fonts/font = ExtResource("2_guh65")
 theme_override_font_sizes/font_size = 48
-text = "'E'"
+text = "'E'
+"
 
 [node name="interactable_light" type="PointLight2D" parent="."]
 color = Color(0.203922, 1, 1, 1)

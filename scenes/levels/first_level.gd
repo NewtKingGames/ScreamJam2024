@@ -21,4 +21,5 @@ func stop_alarm () -> void:
 				var simple_light = child as SimpleLight
 				if simple_light:
 					simple_light.stop_alarm()
+			$AmbientNoisePlayer.play()
 	)
