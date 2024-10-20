@@ -9,7 +9,7 @@ const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
 
 @onready var interactable_light: PointLight2D = $interactable_light
 @onready var player_area: Area2D = $PlayerArea
-@onready var interact_label: Label = %InteractLabeler
+@onready var interact_label: Label = %InteractLabel
 
 var is_interactable: bool = true: 
 	set(value):
@@ -50,4 +50,3 @@ func do_effect() -> void:
 	effect.perform_action(target)
 	if not effect.is_repeatable:
 		is_interactable = false
-	# TODO - add shome check in the effect resource like "is repeatable" and if it's not switch to the deactivated skin
