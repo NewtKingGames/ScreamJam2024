@@ -1,10 +1,7 @@
 class_name FirstLevel
 extends Level
 
-
 @onready var simple_lights: Node2D = $SimpleLights
-
-
 
 func _ready() -> void:
 	super._ready()
@@ -15,7 +12,7 @@ func _ready() -> void:
 
 func stop_alarm () -> void:
 	var tween: Tween = create_tween()
-	tween.tween_property($AlarmSound, "pitch_scale", 0.25, 2.0)
+	tween.tween_property($AlarmSound, "pitch_scale", 0.25, 2.5)
 	
 	tween.finished.connect(
 		func():
@@ -25,5 +22,3 @@ func stop_alarm () -> void:
 				if simple_light:
 					simple_light.stop_alarm()
 	)
-	
-	

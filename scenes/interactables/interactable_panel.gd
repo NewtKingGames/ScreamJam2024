@@ -41,15 +41,16 @@ func _on_resource_input_completed():
 	# Perform visual effects
 	# now we have access to the node object and can do somethign with it
 	is_active = false
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.01).timeout
 	success_effects()
-	await get_tree().create_timer(1).timeout
+	var completed_delay: float = current_interactable_resource.input_complete_delay
+	await get_tree().create_timer(completed_delay).timeout
 	current_interactable_node.do_effect()
-	Events.interaction_completed.emit(current_interactable_node)
 	hide_panel()
+	Events.interaction_completed.emit(current_interactable_node)
 	
 func success_effects() -> void:
-	if "input_complete_sound" in current_interactable_resource:
+	if current_interactable_resource.input_complete_sound:
 		SfxPlayer.play(current_interactable_resource.input_complete_sound)
 	else:
 		SfxPlayer.play(DEFAULT_INPUT_COMPLETE_NOISE)

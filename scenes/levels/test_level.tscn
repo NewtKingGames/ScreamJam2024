@@ -326,6 +326,7 @@ sources/0 = SubResource("TileSetAtlasSource_8kvnx")
 script = ExtResource("5_kho4l")
 arrow_inputs = Array[int]([0, 1, 2])
 type = 0
+input_complete_delay = 0.5
 
 [sub_resource type="Resource" id="Resource_vo6ct"]
 script = ExtResource("6_61ajw")
@@ -336,6 +337,7 @@ is_repeatable = false
 script = ExtResource("5_kho4l")
 arrow_inputs = Array[int]([0, 1, 0, 0])
 type = 0
+input_complete_delay = 0.5
 
 [sub_resource type="Resource" id="Resource_t5ifn"]
 script = ExtResource("6_61ajw")
@@ -349,6 +351,7 @@ goal_progress = 100.0
 increment_progress = 20.0
 decrement_rate = 1.0
 type = 1
+input_complete_delay = 0.5
 
 [sub_resource type="Resource" id="Resource_3xygs"]
 script = ExtResource("6_61ajw")
