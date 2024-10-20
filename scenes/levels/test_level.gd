@@ -22,7 +22,6 @@ func _on_player_exited_interaction(interactable_node: InteractableNode) -> void:
 	interactable_panel.hide_panel()
 
 func player_exited_level():
-	print("player exited level")
 	if next_level:
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_packed(next_level)

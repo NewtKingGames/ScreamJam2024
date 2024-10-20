@@ -4,6 +4,7 @@ extends Resource
 enum InteractableType {ARROW, BUTTON_MASH, BUTTON_PROMPT}
 # This seems a bit weird... I think this should just be set by the child classes?
 @export var type: InteractableType
+@export var input_complete_sound: AudioStream
 
 signal input_complete
 

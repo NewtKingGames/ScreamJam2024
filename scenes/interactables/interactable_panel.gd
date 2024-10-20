@@ -5,7 +5,7 @@ extends Panel
 # The idea of this class is to accept an incoming InteractableResource to the player and after
 # the player completes the appropriate actions do the resources effect
 # I'm wondering if you should make child scenes per the different type of interactable object
-const DOUBLE_BEEP = preload("res://sounds/double_beep.wav")
+const DEFAULT_INPUT_COMPLETE_NOISE: AudioStream = preload("res://sounds/double_beep.wav")
 
 var arrow_interactable_panel_scene: PackedScene = load("res://scenes/interactables/arrow_interactable_panel.tscn")
 var button_mash_interactable_panel_scene: PackedScene = load("res://scenes/interactables/button_mash_interactable_panel.tscn")
@@ -49,7 +49,10 @@ func _on_resource_input_completed():
 	hide_panel()
 	
 func success_effects() -> void:
-	SfxPlayer.play(DOUBLE_BEEP)
+	if "input_complete_sound" in current_interactable_resource:
+		SfxPlayer.play(current_interactable_resource.input_complete_sound)
+	else:
+		SfxPlayer.play(DEFAULT_INPUT_COMPLETE_NOISE)
 
 func hide_panel() -> void:
 	hide()

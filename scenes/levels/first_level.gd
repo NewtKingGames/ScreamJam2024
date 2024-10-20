@@ -19,7 +19,6 @@ func stop_alarm () -> void:
 	
 	tween.finished.connect(
 		func():
-			print("stopping alarm")
 			$AlarmSound.stop()
 			for child in simple_lights.get_children():
 				var simple_light = child as SimpleLight

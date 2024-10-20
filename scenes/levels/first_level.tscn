@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bl0l8sm6o42cd"]
+[gd_scene load_steps=16 format=3 uid="uid://bl0l8sm6o42cd"]
 
 [ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_wk3ol"]
 [ext_resource type="PackedScene" uid="uid://bbwelpu3o6atv" path="res://scenes/structures/bed.tscn" id="2_k1cmf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://do74d6fgat88l" path="res://scenes/structures/door.tscn" id="3_ph8jf"]
 [ext_resource type="PackedScene" uid="uid://dsscgxgne6rde" path="res://scenes/lights/simple_light.tscn" id="4_ks81w"]
 [ext_resource type="PackedScene" uid="uid://bdepptjbqpbne" path="res://scenes/interactables/interactable.tscn" id="5_kt0m2"]
+[ext_resource type="AudioStream" uid="uid://caay7xpovdjm6" path="res://sounds/beep_low_pitch.mp3" id="6_ic0yk"]
 [ext_resource type="Script" path="res://custom_resources/button_prompt_interactable.gd" id="6_s50l2"]
 [ext_resource type="AudioStream" uid="uid://bddrse6dbdup7" path="res://sounds/emergency_alarm.mp3" id="7_4upeu"]
 [ext_resource type="Script" path="res://custom_resources/effect.gd" id="7_cvys1"]
@@ -15,6 +16,7 @@
 script = ExtResource("6_s50l2")
 messages = Array[String](["Facility security breached, engineer required in the testing facility.", "Terminate Lockdown?"])
 type = 2
+input_complete_sound = ExtResource("6_ic0yk")
 
 [sub_resource type="Resource" id="Resource_m7y2k"]
 script = ExtResource("7_cvys1")
