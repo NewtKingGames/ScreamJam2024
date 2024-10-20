@@ -5,7 +5,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_elto8"]
 
 [node name="WeepingAngelEnemy" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_nr5pk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_elto8")
+
+[node name="NavigationTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
