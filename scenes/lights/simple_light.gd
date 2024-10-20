@@ -16,4 +16,4 @@ func stop_alarm() -> void:
 	tween = create_tween()
 	point_light_2d.color = Color.WHITE
 	tween.tween_property(point_light_2d, "energy", 0, 0.1)
-	tween.tween_property(point_light_2d, "energy", 15.0, 3)
+	tween.tween_property(point_light_2d, "energy", 7.0, 3)

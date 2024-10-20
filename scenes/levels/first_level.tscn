@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bl0l8sm6o42cd"]
+[gd_scene load_steps=19 format=3 uid="uid://bl0l8sm6o42cd"]
 
 [ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_wk3ol"]
 [ext_resource type="PackedScene" uid="uid://bbwelpu3o6atv" path="res://scenes/structures/bed.tscn" id="2_k1cmf"]
@@ -38,6 +38,18 @@ script = ExtResource("7_cvys1")
 method_name = "open"
 is_repeatable = false
 
+[sub_resource type="Resource" id="Resource_1obgc"]
+script = ExtResource("10_3q0hc")
+arrow_inputs = Array[int]([1, 2, 0, 3, 1])
+type = 0
+input_complete_delay = 0.5
+effect_description = "Hallway Lights"
+
+[sub_resource type="Resource" id="Resource_7puco"]
+script = ExtResource("7_cvys1")
+method_name = "turn_on"
+is_repeatable = true
+
 [node name="FirstLevel" instance=ExtResource("1_wk3ol")]
 script = ExtResource("2_vstng")
 
@@ -57,6 +69,7 @@ rotation = -1.58788
 autoplay = false
 
 [node name="DirectionalLight2D" parent="." index="4"]
+visible = true
 energy = 1.0
 
 [node name="Bed" parent="." index="5" instance=ExtResource("2_k1cmf")]
@@ -67,11 +80,12 @@ scale = Vector2(0.736768, 0.736768)
 [node name="StartingRoomDoor" parent="." index="6" instance=ExtResource("3_ph8jf")]
 position = Vector2(1363.82, 976)
 
-[node name="AlarmInteractable" parent="." index="7" instance=ExtResource("5_kt0m2")]
+[node name="AlarmInteractable" parent="." index="7" node_paths=PackedStringArray("targets") instance=ExtResource("5_kt0m2")]
 position = Vector2(2072.77, 1734)
 rotation = -4.71238
 interactable_resource = SubResource("Resource_gocv0")
 effect = SubResource("Resource_m7y2k")
+targets = [NodePath("..")]
 
 [node name="InteractLabel" parent="AlarmInteractable" index="4"]
 offset_left = -181.0
@@ -84,7 +98,31 @@ rotation = 4.71238
 stream = ExtResource("7_4upeu")
 autoplay = true
 
-[node name="SimpleLights" type="Node2D" parent="." index="9"]
+[node name="DoorInteractable" parent="." index="9" node_paths=PackedStringArray("targets") instance=ExtResource("5_kt0m2")]
+position = Vector2(1085.45, 1052)
+interactable_resource = SubResource("Resource_et5oh")
+effect = SubResource("Resource_if3ws")
+targets = [NodePath("../StartingRoomDoor")]
+
+[node name="InteractLabel" parent="DoorInteractable" index="4"]
+offset_left = -144.192
+offset_top = -34.0
+offset_right = -80.1925
+offset_bottom = 15.0
+
+[node name="HallwayLightsInteractable" parent="." index="10" node_paths=PackedStringArray("targets") instance=ExtResource("5_kt0m2")]
+position = Vector2(1381.85, 325)
+interactable_resource = SubResource("Resource_1obgc")
+effect = SubResource("Resource_7puco")
+targets = [NodePath("../HallwayLights/TogglableHallwayLight"), NodePath("../HallwayLights/TogglableHallwayLight2"), NodePath("../HallwayLights/TogglableHallwayLight3"), NodePath("../HallwayLights/TogglableHallwayLight4")]
+
+[node name="InteractLabel" parent="HallwayLightsInteractable" index="4"]
+offset_left = -159.213
+offset_top = -29.0
+offset_right = -95.2128
+offset_bottom = 20.0
+
+[node name="SimpleLights" type="Node2D" parent="." index="11"]
 
 [node name="SimpleLight" parent="SimpleLights" index="0" instance=ExtResource("4_ks81w")]
 position = Vector2(604.808, 1911)
@@ -103,41 +141,21 @@ position = Vector2(2014.69, 995)
 [node name="SimpleLight5" parent="SimpleLights" index="4" instance=ExtResource("4_ks81w")]
 position = Vector2(2014.69, 995)
 
-[node name="DoorInteractable" parent="." index="10" instance=ExtResource("5_kt0m2")]
-position = Vector2(1085.45, 1052)
-interactable_resource = SubResource("Resource_et5oh")
-effect = SubResource("Resource_if3ws")
-
-[node name="InteractLabel" parent="DoorInteractable" index="4"]
-offset_left = -144.192
-offset_top = -34.0
-offset_right = -80.1925
-offset_bottom = 15.0
-
-[node name="HallwayLightsInteractable" parent="." index="11" instance=ExtResource("5_kt0m2")]
-position = Vector2(1381.85, 325)
-
-[node name="InteractLabel" parent="HallwayLightsInteractable" index="4"]
-offset_left = -159.213
-offset_top = -29.0
-offset_right = -95.2128
-offset_bottom = 20.0
-
 [node name="HallwayLights" type="Node2D" parent="." index="12"]
 
-[node name="TogglableLight" parent="HallwayLights" index="0" instance=ExtResource("12_3afvv")]
+[node name="TogglableHallwayLight" parent="HallwayLights" index="0" instance=ExtResource("12_3afvv")]
 position = Vector2(676.904, 631)
 enabled = false
 
-[node name="TogglableLight2" parent="HallwayLights" index="1" instance=ExtResource("12_3afvv")]
+[node name="TogglableHallwayLight2" parent="HallwayLights" index="1" instance=ExtResource("12_3afvv")]
 position = Vector2(1373.84, 631)
 enabled = false
 
-[node name="TogglableLight3" parent="HallwayLights" index="2" instance=ExtResource("12_3afvv")]
+[node name="TogglableHallwayLight3" parent="HallwayLights" index="2" instance=ExtResource("12_3afvv")]
 position = Vector2(2157.88, 631)
 enabled = false
 
-[node name="TogglableLight4" parent="HallwayLights" index="3" instance=ExtResource("12_3afvv")]
+[node name="TogglableHallwayLight4" parent="HallwayLights" index="3" instance=ExtResource("12_3afvv")]
 position = Vector2(2930.92, 631)
 enabled = false
 
