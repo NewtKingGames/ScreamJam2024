@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsdihea7nw6qx"]
+[gd_scene load_steps=23 format=3 uid="uid://dsdihea7nw6qx"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_4kg0v"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="1_8gq07"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://do74d6fgat88l" path="res://scenes/structures/door.tscn" id="11_gs1f8"]
 [ext_resource type="Script" path="res://custom_resources/button_mash_interactable.gd" id="12_71rwb"]
 [ext_resource type="PackedScene" uid="uid://b4nsvp7kl23xr" path="res://scenes/enemies/darkness_enemy.tscn" id="13_xcbyk"]
+[ext_resource type="PackedScene" uid="uid://g7vvuuqnul0o" path="res://scenes/enemies/weeping_angel_enemy.tscn" id="14_5wg2a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kvnx"]
 texture = ExtResource("3_b452g")
@@ -286,7 +287,7 @@ layer_0/tile_data = PackedInt32Array(262152, 65536, 1, 262151, 65536, 1, 262150,
 layer_1/name = "Outer Walls"
 layer_1/tile_data = PackedInt32Array(131076, 327680, 1, 65540, 327680, 1, 4, 327680, 1, 196609, 262144, 2, 196610, 262144, 2, 196611, 262144, 2, 196612, 327680, 2, -131071, 262144, 2, -131069, 262144, 2)
 layer_2/name = "Inner Walls"
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(65538, 262144, 2, 65539, 262144, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_8gq07")]
 position = Vector2(1445.93, 1040)
@@ -334,6 +335,7 @@ autoplay = true
 enabled = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 energy = 0.8
 blend_mode = 1
 
@@ -349,3 +351,6 @@ target = NodePath("../Door")
 
 [node name="DarknessEnemy" parent="." instance=ExtResource("13_xcbyk")]
 position = Vector2(1339.79, 106)
+
+[node name="WeepingAngelEnemy" parent="." instance=ExtResource("14_5wg2a")]
+position = Vector2(1044.39, 471)
