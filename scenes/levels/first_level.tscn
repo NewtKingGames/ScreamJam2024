@@ -18,6 +18,7 @@ messages = Array[String](["Facility security breached, engineer required in the 
 type = 2
 input_complete_sound = ExtResource("6_ic0yk")
 input_complete_delay = 2.08165e-12
+effect_description = ""
 
 [sub_resource type="Resource" id="Resource_m7y2k"]
 script = ExtResource("7_cvys1")
@@ -29,6 +30,7 @@ script = ExtResource("10_3q0hc")
 arrow_inputs = Array[int]([1, 2, 1, 3])
 type = 0
 input_complete_delay = 0.5
+effect_description = ""
 
 [sub_resource type="Resource" id="Resource_if3ws"]
 script = ExtResource("7_cvys1")

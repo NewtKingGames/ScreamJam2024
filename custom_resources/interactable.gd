@@ -6,6 +6,7 @@ enum InteractableType {ARROW, BUTTON_MASH, BUTTON_PROMPT}
 @export var type: InteractableType
 @export var input_complete_sound: AudioStream
 @export var input_complete_delay: float = 0.5
+@export var effect_description: String
 
 signal input_complete
 

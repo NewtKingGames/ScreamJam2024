@@ -63,5 +63,6 @@ volume_db = -6.467
 occluder = SubResource("OccluderPolygon2D_jdo6y")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.0
 texture = ExtResource("10_o4hhl")
 texture_scale = 3.0

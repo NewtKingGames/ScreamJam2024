@@ -9,25 +9,39 @@
 script = ExtResource("2_c0jbp")
 arrow_inputs = Array[int]([0, 0])
 type = 0
+input_complete_delay = 0.5
+effect_description = ""
 
-[node name="ArrowInteractablePanel" type="HBoxContainer"]
+[node name="ArrowInteractablePanel" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_b7dkr")
-alignment = 1
 script = ExtResource("1_pm3yv")
 arrow_resource = SubResource("Resource_560c0")
 
-[node name="ArrowIcon" parent="." instance=ExtResource("3_blolk")]
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1142.0
+offset_top = 531.0
+offset_right = 1143.0
+offset_bottom = 549.0
+
+[node name="ArrowContainerParent" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 776.0
+offset_right = 1112.0
+offset_bottom = 1080.0
+
+[node name="ArrowIcon" parent="ArrowContainerParent" instance=ExtResource("3_blolk")]
 layout_mode = 2
 
-[node name="ArrowIcon2" parent="." instance=ExtResource("3_blolk")]
+[node name="ArrowIcon2" parent="ArrowContainerParent" instance=ExtResource("3_blolk")]
 layout_mode = 2
 arrow_direction = 1
 
-[node name="ArrowIcon3" parent="." instance=ExtResource("3_blolk")]
+[node name="ArrowIcon3" parent="ArrowContainerParent" instance=ExtResource("3_blolk")]
 layout_mode = 2
 arrow_direction = 3
