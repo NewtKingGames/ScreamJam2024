@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdepptjbqpbne"]
+[gd_scene load_steps=9 format=3 uid="uid://bdepptjbqpbne"]
 
 [ext_resource type="Script" path="res://scenes/interactables/interactable_node.gd" id="1_3nbso"]
 [ext_resource type="Texture2D" uid="uid://bsvrp2aur4m26" path="res://sprites/computer.png" id="2_gt8a5"]
 [ext_resource type="FontFile" uid="uid://b0xlwmopl6yq7" path="res://scenes/pixel_rpg.ttf" id="2_guh65"]
 [ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="3_4il8c"]
+[ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="5_aopd2"]
+[ext_resource type="Script" path="res://scenes/interactables/interactable_light.gd" id="6_subiu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvwkj"]
 radius = 64.0
@@ -47,3 +49,8 @@ offset_bottom = -304.0
 theme_override_fonts/font = ExtResource("2_guh65")
 theme_override_font_sizes/font_size = 48
 text = "'E'"
+
+[node name="interactable_light" type="PointLight2D" parent="."]
+color = Color(0.203922, 1, 1, 1)
+texture = ExtResource("5_aopd2")
+script = ExtResource("6_subiu")

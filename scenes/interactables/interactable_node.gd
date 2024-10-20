@@ -7,18 +7,16 @@ const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
 @export var effect: Effect
 @export var target: Node2D
 
-
+@onready var interactable_light: PointLight2D = $interactable_light
 @onready var player_area: Area2D = $PlayerArea
-@onready var interact_label: Label = %InteractLabel
-# TODO - maybe it makes more sense to have this interact panel happen at the top level scene so we can
-# block out the whole screen with it. If we do this then we probably want a global signal and have the interactable
-# emit some kind of resource/scene which the main interaction panel can read and show to the player
+@onready var interact_label: Label = %InteractLabeler
 
 var is_interactable: bool = true: 
 	set(value):
 		if value == false:
 			$Sprite2D.texture = COMPUTER_DEACTIVATED_SPRITE
 			interact_label.hide()
+			interactable_light.enabled = false
 		is_interactable = value
 
 func _ready() -> void:
