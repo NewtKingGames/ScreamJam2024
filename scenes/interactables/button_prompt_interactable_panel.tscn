@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpjryk845bvsa"]
+
+[ext_resource type="Theme" uid="uid://hlgla8l3scju" path="res://themes/interactable_panel.tres" id="1_133ff"]
+[ext_resource type="Script" path="res://scenes/interactables/button_prompt_interactable_panel.gd" id="2_0ie4v"]
+
+[node name="ButtonPromptInteractablePanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_133ff")
+script = ExtResource("2_0ie4v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -50.0
+offset_right = 0.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is the message"
+scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -177.0
+offset_right = 47.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(6.00287, 6.00287)
+pivot_offset = Vector2(47, 12)
+text = "Press Me"
+icon_alignment = 1

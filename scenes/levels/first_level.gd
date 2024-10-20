@@ -12,4 +12,19 @@ func _ready() -> void:
 		var simple_light = child as SimpleLight
 		if simple_light:
 			simple_light.alarm()
-		
+
+func stop_alarm () -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property($AlarmSound, "pitch_scale", 0.25, 2.0)
+	
+	tween.finished.connect(
+		func():
+			print("stopping alarm")
+			$AlarmSound.stop()
+			for child in simple_lights.get_children():
+				var simple_light = child as SimpleLight
+				if simple_light:
+					simple_light.stop_alarm()
+	)
+	
+	

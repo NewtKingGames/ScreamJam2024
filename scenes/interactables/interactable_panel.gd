@@ -9,6 +9,7 @@ const DOUBLE_BEEP = preload("res://sounds/double_beep.wav")
 
 var arrow_interactable_panel_scene: PackedScene = load("res://scenes/interactables/arrow_interactable_panel.tscn")
 var button_mash_interactable_panel_scene: PackedScene = load("res://scenes/interactables/button_mash_interactable_panel.tscn")
+var button_prompt_interactable_panel_scene: PackedScene = load("res://scenes/interactables/button_prompt_interactable_panel.tscn")
 
 var current_interactable_resource: Interactable
 var current_interactable_node: InteractableNode 
@@ -18,21 +19,21 @@ var is_active: bool = false
 func show_panel(interactable: InteractableNode) -> void:
 	current_interactable_node = interactable
 	is_active = true
+	var child_scene
 	if current_interactable_node.interactable_resource.type == Interactable.InteractableType.ARROW:
 		# Duplicate the resource to reset progress
 		current_interactable_resource = current_interactable_node.interactable_resource.duplicate(true) as ArrowInteractable
-		var child_scene: ArrowInteractablePanel = arrow_interactable_panel_scene.instantiate()
-		add_child(child_scene)
-		child_scene.init(current_interactable_resource)
-		#child_scene.arrow_resource = interactable_resource
-		active_child_node = child_scene
+		child_scene = arrow_interactable_panel_scene.instantiate() as ArrowInteractablePanel
 	elif current_interactable_node.interactable_resource.type == Interactable.InteractableType.BUTTON_MASH:
 		current_interactable_resource = current_interactable_node.interactable_resource.duplicate(true) as ButtonMashInteractable
-		var child_scene: ButtonMashInteractablePanel = button_mash_interactable_panel_scene.instantiate()
-		add_child(child_scene)
-		child_scene.init(current_interactable_resource)
-		active_child_node = child_scene
+		child_scene = button_mash_interactable_panel_scene.instantiate() as ButtonMashInteractablePanel
+	elif current_interactable_node.interactable_resource.type == Interactable.InteractableType.BUTTON_PROMPT:
+		current_interactable_resource = current_interactable_node.interactable_resource.duplicate(true) as ButtonPromptInteractable
+		child_scene = button_prompt_interactable_panel_scene.instantiate() as ButtonPromptInteractablePanel
 
+	add_child(child_scene)
+	child_scene.init(current_interactable_resource)
+	active_child_node = child_scene
 	current_interactable_resource.input_complete.connect(_on_resource_input_completed)
 	show()
 
