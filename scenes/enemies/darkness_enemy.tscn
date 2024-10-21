@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4nsvp7kl23xr"]
+[gd_scene load_steps=8 format=3 uid="uid://b4nsvp7kl23xr"]
 
 [ext_resource type="Script" path="res://scenes/enemies/darkness_enemy.gd" id="1_2xhew"]
 [ext_resource type="AudioStream" uid="uid://nvr76or8uk72" path="res://sounds/giant_walking_fast.mp3" id="2_oapij"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy_state_machine.gd" id="3_76h2c"]
+[ext_resource type="Script" path="res://scenes/enemies/EnemyIdle.gd" id="4_mdky8"]
+[ext_resource type="Script" path="res://scenes/enemies/EnemyWalking.gd" id="5_wkhxe"]
+[ext_resource type="Script" path="res://scenes/enemies/EnemyInteracting.gd" id="6_mttvo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_umull"]
 
@@ -17,3 +21,18 @@ shape = SubResource("CircleShape2D_umull")
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_oapij")
 volume_db = 1.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_76h2c")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_mdky8")
+
+[node name="Starting" type="Node" parent="StateMachine"]
+script = ExtResource("5_wkhxe")
+state = 1
+
+[node name="Chasing" type="Node" parent="StateMachine"]
+script = ExtResource("6_mttvo")
+state = 2
