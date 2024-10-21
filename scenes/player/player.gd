@@ -31,6 +31,7 @@ func entered_interactable_area(interactable: InteractableNode) -> void:
 	interactable_near = interactable
 
 func exited_interactable_area(interactable: InteractableNode) -> void: 
+	print("exiting the interactable area")
 	interactable_near = null
 
 

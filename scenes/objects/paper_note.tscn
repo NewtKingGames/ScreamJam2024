@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5xtvh8dmtuui"]
+
+[ext_resource type="Texture2D" uid="uid://ducuwqtublpj7" path="res://sprites/paper.png" id="1_1njxc"]
+[ext_resource type="Script" path="res://scenes/objects/paper_note.gd" id="1_54yj7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kr4iw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xgj4"]
+bg_color = Color(0.262745, 0.262745, 0.262745, 0.415686)
+
+[node name="PaperNote" type="Node2D"]
+script = ExtResource("1_54yj7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.3273, 1.3273)
+texture = ExtResource("1_1njxc")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.63161, 1.63161)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5.55529, 5.55529)
+shape = SubResource("CircleShape2D_kr4iw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xgj4")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -9.0
+offset_right = 153.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Oh look it's tons of words!"
