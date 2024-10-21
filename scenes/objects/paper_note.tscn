@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5xtvh8dmtuui"]
+[gd_scene load_steps=7 format=3 uid="uid://c5xtvh8dmtuui"]
 
 [ext_resource type="Texture2D" uid="uid://ducuwqtublpj7" path="res://sprites/paper.png" id="1_1njxc"]
 [ext_resource type="Script" path="res://scenes/objects/paper_note.gd" id="1_54yj7"]
+[ext_resource type="AudioStream" uid="uid://orcnsgach61k" path="res://sounds/paper.mp3" id="3_lg5y7"]
+[ext_resource type="AudioStream" uid="uid://celdid7lkx4ox" path="res://sounds/sliding-paper-on-table4.mp3" id="4_2mxur"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kr4iw"]
 
@@ -26,6 +28,7 @@ shape = SubResource("CircleShape2D_kr4iw")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -56,3 +59,11 @@ offset_right = 28.0
 offset_bottom = -86.0
 theme_override_font_sizes/font_size = 36
 text = "'E'"
+
+[node name="OpenSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lg5y7")
+volume_db = 1.0
+
+[node name="CloseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2mxur")
+volume_db = 1.0
