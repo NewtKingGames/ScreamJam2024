@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsscgxgne6rde"]
+[gd_scene load_steps=10 format=3 uid="uid://dsscgxgne6rde"]
 
 [ext_resource type="Script" path="res://scenes/lights/simple_light.gd" id="1_0ckm5"]
 [ext_resource type="Texture2D" uid="uid://cqpq0awbwct4l" path="res://resources/scifigraphics/objects/light.png" id="1_m5bct"]
 [ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="2_m73bv"]
+[ext_resource type="AudioStream" uid="uid://d1001qkvjlws6" path="res://sounds/BigSwitchOne.mp3" id="4_f4qeg"]
+[ext_resource type="AudioStream" uid="uid://crv6mieqd38hf" path="res://sounds/BigSwitchTwo.mp3" id="5_4v34j"]
+[ext_resource type="PackedScene" uid="uid://dxctqyvxk18p8" path="res://scenes/lights/light_area.tscn" id="6_dma6a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sjklm"]
 radius = 17.0
@@ -10,6 +13,9 @@ height = 192.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jqrxp"]
 polygon = PackedVector2Array(-77, 13, -78, 16, -88, 14, -98, 6, -98, -9, -85, -17, 78, -18, 92, -13, 100, -2, 97, 8, 87, 15, 76, 15, 77, -5, 70, -11, 51, -13, -67, -13, -75, -7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8boov"]
+size = Vector2(20, 80.571)
 
 [node name="SimpleLight" type="StaticBody2D"]
 collision_layer = 4
@@ -34,3 +40,19 @@ texture_scale = 2.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jqrxp")
+
+[node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f4qeg")
+
+[node name="TurnOffSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4v34j")
+
+[node name="LightArea" parent="." instance=ExtResource("6_dma6a")]
+position = Vector2(7, 24)
+scale = Vector2(2.2, 3.36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+position = Vector2(0, 132)
+scale = Vector2(21.0149, 3.13888)
+shape = SubResource("RectangleShape2D_8boov")
+debug_color = Color(0.796824, 0.419006, 0.166292, 0.42)

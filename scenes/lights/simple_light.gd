@@ -1,6 +1,9 @@
 class_name SimpleLight
 extends StaticBody2D
 
+@onready var turn_on_sound: AudioStreamPlayer2D = $TurnOnSound
+@onready var turn_off_sound: AudioStreamPlayer2D = $TurnOffSound
+@onready var light_area: LightArea = $LightArea
 
 const alarm_color: Color = Color(0.938, 0.639, 0.275)
 @export var idle_color: Color = Color.WHITE
@@ -11,12 +14,30 @@ var tween: Tween
 func _ready() -> void:
 	tween = create_tween().set_loops()
 	
+#
+#func on() -> void:
+	#point_light_2d.visible = true
+#
+#func off() -> void:
+	#point_light_2d.visible = false
 
-func on() -> void:
-	point_light_2d.visible = true
+func turn_on():
+	if point_light_2d.enabled:
+		return
+	toggle_light(true)
+	
+func turn_off():
+	if not point_light_2d.enabled:
+		return
+	toggle_light(false)
 
-func off() -> void:
-	point_light_2d.visible = false
+func toggle_light(on: bool):
+	if on:
+		turn_on_sound.play()
+	else:
+		turn_off_sound.play()
+	point_light_2d.enabled = on
+	light_area.is_active = on
 
 func alarm() -> void:
 	point_light_2d.color = alarm_color
