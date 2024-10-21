@@ -47,6 +47,8 @@ func _on_player_exited_area(body: Node2D) -> void:
 		player.exited_interactable_area(self)
 
 func player_interacted() -> void:
+	if not is_interactable:
+		return
 	startup_noise.pitch_scale = randf_range(0.90, 1.0)
 	startup_noise.play()
 	Events.player_started_interaction.emit(self)

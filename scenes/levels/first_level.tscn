@@ -93,7 +93,7 @@ effect_description = ""
 [sub_resource type="Resource" id="Resource_rcdho"]
 script = ExtResource("7_cvys1")
 method_name = "turn_on"
-is_repeatable = true
+is_repeatable = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_634uo"]
 
@@ -289,7 +289,7 @@ position = Vector2(-182.243, 2154)
 enabled = false
 
 [node name="TogglableLight4" parent="SecondRoomLights" index="3" instance=ExtResource("12_3afvv")]
-position = Vector2(-1397.87, 1582)
+position = Vector2(-1091.46, 1582)
 enabled = false
 
 [node name="TogglableLight5" parent="SecondRoomLights" index="4" instance=ExtResource("12_3afvv")]
@@ -297,7 +297,7 @@ position = Vector2(-2535.39, 1562)
 enabled = false
 
 [node name="TogglableLight6" parent="SecondRoomLights" index="5" instance=ExtResource("12_3afvv")]
-position = Vector2(-3132.18, -60)
+position = Vector2(-3132.18, 84)
 enabled = false
 
 [node name="LightsTurnBackOnArea" type="Area2D" parent="." index="22"]

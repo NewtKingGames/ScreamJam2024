@@ -6,6 +6,9 @@ extends PointLight2D
 @onready var light_area: LightArea = $LightArea
 
 
+func _ready() -> void:
+	light_area.is_active = enabled
+
 func turn_on():
 	if enabled:
 		return
