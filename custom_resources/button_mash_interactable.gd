@@ -2,13 +2,13 @@ class_name ButtonMashInteractable
 extends Interactable
 
 
-@export var starting_progress: float
-@export var goal_progress: float
+@export var starting_progress: float = 20
+@export var goal_progress: float = 100
 var current_progress = starting_progress
 # How much to increment progress per button press
-@export var increment_progress: float
+@export var increment_progress: float = 5
 # Deplete the bar over time
-@export var decrement_rate: float
+@export var decrement_rate: float = 0
 
 
 

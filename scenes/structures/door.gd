@@ -36,7 +36,7 @@ func toggle():
 	tween.set_parallel(true)
 	if is_open:
 		tween.tween_property(door_left_side, "scale", Vector2(close_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
-		tween.tween_property(door_right_side, "scaleaaaa", Vector2(close_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tween.tween_property(door_right_side, "scale", Vector2(close_scale, 1), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		door_close_player.play()
 		#Play door closing effects
 	else:

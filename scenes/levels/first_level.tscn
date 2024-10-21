@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bl0l8sm6o42cd"]
+[gd_scene load_steps=26 format=3 uid="uid://bl0l8sm6o42cd"]
 
 [ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_wk3ol"]
 [ext_resource type="PackedScene" uid="uid://bbwelpu3o6atv" path="res://scenes/structures/bed.tscn" id="2_k1cmf"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://custom_resources/effect.gd" id="7_cvys1"]
 [ext_resource type="Script" path="res://custom_resources/arrow_interactable.gd" id="10_3q0hc"]
 [ext_resource type="PackedScene" uid="uid://bqncdno4rb7be" path="res://scenes/lights/togglable_light.tscn" id="12_3afvv"]
+[ext_resource type="PackedScene" uid="uid://ge6covusp0d7" path="res://scenes/structures/level_exit_door.tscn" id="13_beu11"]
+[ext_resource type="PackedScene" uid="uid://5klrqrejhb0r" path="res://scenes/structures/level_exit_door_lock.tscn" id="14_uphqo"]
+[ext_resource type="Script" path="res://custom_resources/button_mash_interactable.gd" id="15_vfm7w"]
 
 [sub_resource type="Resource" id="Resource_gocv0"]
 script = ExtResource("6_s50l2")
@@ -50,26 +53,52 @@ script = ExtResource("7_cvys1")
 method_name = "turn_on"
 is_repeatable = true
 
+[sub_resource type="Resource" id="Resource_x2ve3"]
+script = ExtResource("15_vfm7w")
+starting_progress = 20.0
+goal_progress = 100.0
+increment_progress = 5.0
+decrement_rate = 0.0
+type = 1
+input_complete_delay = 0.5
+effect_description = "Unlock Facility Exit"
+
+[sub_resource type="Resource" id="Resource_fe8rj"]
+script = ExtResource("7_cvys1")
+method_name = "unlock"
+is_repeatable = false
+
+[sub_resource type="Resource" id="Resource_d8evn"]
+script = ExtResource("10_3q0hc")
+arrow_inputs = Array[int]([0, 1, 2, 3, 1, 0])
+type = 0
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_50xmh"]
+script = ExtResource("7_cvys1")
+method_name = "unlock"
+is_repeatable = true
+
 [node name="FirstLevel" instance=ExtResource("1_wk3ol")]
 script = ExtResource("2_vstng")
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2(-1.00134, -1)
-layer_0/tile_data = PackedInt32Array(65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 327684, 65536, 1, 327683, 65536, 1, 327682, 65536, 1, 327681, 65536, 1, 327680, 65536, 1, 393215, 65536, 1, 327679, 65536, 1, 262143, 65536, 1, 196607, 65536, 1, 131071, 65536, 1, 262145, 65536, 1, 196609, 65536, 1, 131073, 65536, 1, 65537, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 196610, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 196611, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 131076, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 196613, 65536, 1, 131077, 65536, 1, 65541, 65536, 1, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 1, 262150, 65536, 1, 458751, 65536, 2, 393216, 65536, 2, 393217, 65536, 2, 393218, 65536, 2, 393219, 65536, 2, 393220, 65536, 2, 393221, 65536, 2, 393222, 65536, 2, 393223, 65536, 2, 327688, 131072, 1, 262152, 131072, 1, 196616, 131072, 1, 131080, 131072, 1, 65544, 131072, 1, 393224, 131072, 2, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0)
+layer_0/tile_data = PackedInt32Array(65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 65536, 1, 327686, 65536, 1, 327685, 65536, 1, 327684, 65536, 1, 327683, 65536, 1, 327682, 65536, 1, 327681, 65536, 1, 327680, 65536, 1, 393215, 65536, 1, 327679, 65536, 1, 262143, 65536, 1, 196607, 65536, 1, 131071, 65536, 1, 262145, 65536, 1, 196609, 65536, 1, 131073, 65536, 1, 65537, 65536, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 262144, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 196610, 65536, 1, 262146, 65536, 1, 262147, 65536, 1, 196611, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 131076, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 196613, 65536, 1, 131077, 65536, 1, 65541, 65536, 1, 65542, 65536, 1, 131078, 65536, 1, 196614, 65536, 1, 262150, 65536, 1, 458751, 65536, 1, 393216, 65536, 1, 393217, 65536, 2, 393218, 65536, 2, 393219, 65536, 2, 393220, 65536, 2, 393221, 65536, 2, 393222, 65536, 2, 393223, 65536, 2, 327688, 131072, 1, 262152, 131072, 1, 196616, 131072, 1, 131080, 131072, 1, 65544, 131072, 1, 393224, 131072, 2, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 458752, 65536, 1, 524287, 65536, 1, 458750, 65536, 1, 524286, 65536, 1, 589822, 65536, 1, 589823, 65536, 1, 524288, 65536, 1, 393214, 65536, 1, 327678, 65536, 1, 262142, 65536, 1, 196606, 65536, 1, 131070, 65536, 1, 327677, 65536, 1, 393213, 0, 1, 262141, 65536, 1, 196605, 0, 1, 131069, 0, 1, 65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 65533, 0, 0, 458749, 0, 2, 327676, 65536, 1, 262140, 65536, 1, 262139, 65536, 1, 327675, 65536, 1, 327674, 65536, 1, 262138, 65536, 1, 262137, 65536, 1, 327673, 65536, 1, 262136, 65536, 1, 327672, 65536, 1, 262135, 0, 0, 327671, 0, 2)
 layer_1/name = "Inner Walls"
-layer_1/tile_data = PackedInt32Array(393221, 327680, 8, 327685, 65536, 6, 262149, 65536, 6, 196613, 65536, 6, 131077, 131072, 7, 327681, 65536, 6, 262145, 65536, 6, 196609, 65536, 6, 393217, 327680, 8, 131073, 131072, 7, 131074, 0, 6, 131076, 0, 6)
+layer_1/tile_data = PackedInt32Array(393221, 327680, 8, 327685, 65536, 6, 262149, 65536, 6, 196613, 65536, 6, 131077, 131072, 7, 327681, 65536, 6, 262145, 65536, 6, 196609, 65536, 6, 393217, 327680, 8, 131074, 0, 6, 131076, 0, 6, 131073, 0, 7)
 layer_2/name = "Outer Walls"
-layer_2/tile_data = PackedInt32Array(393219, 262144, 2, 393218, 262144, 2, 393217, 262144, 2, 393216, 262144, 2, 458751, 262144, 2, 393220, 262144, 2, 393221, 262144, 2, 393222, 262144, 2, 393223, 262144, 2, 393224, 327680, 2, 4, 262144, 0, 5, 262144, 0, 6, 262144, 0, 1, 262144, 0, 3, 262144, 0, 2, 262144, 0)
+layer_2/tile_data = PackedInt32Array(393219, 262144, 2, 393218, 262144, 2, 393217, 262144, 2, 393220, 262144, 2, 393221, 262144, 2, 393222, 262144, 2, 393223, 262144, 2, 393224, 327680, 2, 4, 262144, 0, 5, 262144, 0, 6, 262144, 0, 1, 262144, 0, 3, 262144, 0, 2, 262144, 0, 393216, 262144, 2, 0, 262144, 0, 65535, 262144, 0, 65534, 262144, 0, 65533, 196608, 0, 131069, 196608, 1, 196605, 327680, 1, 262141, 327680, 2, 458749, 196608, 2, 393213, 196608, 1, 327677, 327680, 1610612738, 262140, 262144, 2, 327676, 262144, 2, 327675, 262144, 2, 262139, 262144, 2, 262138, 262144, 2, 327674, 262144, 2, 262137, 262144, 2, 327673, 262144, 2, 262136, 262144, 2, 327672, 262144, 2, 262135, 196608, 0, 327671, 196608, 2)
 
 [node name="Player" parent="." index="1"]
-position = Vector2(2017.7, 2270)
+position = Vector2(-205.274, 2112)
 rotation = -1.58788
 
 [node name="AmbientNoisePlayer" parent="." index="3"]
 autoplay = false
 
 [node name="DirectionalLight2D" parent="." index="4"]
-visible = true
 energy = 1.0
 
 [node name="Bed" parent="." index="5" instance=ExtResource("2_k1cmf")]
@@ -159,6 +188,34 @@ enabled = false
 position = Vector2(2930.92, 631)
 enabled = false
 
+[node name="LevelExitDoor" parent="." index="13" instance=ExtResource("13_beu11")]
+position = Vector2(-416.557, 2534)
+
+[node name="LevelExitDoorLock" parent="LevelExitDoor" index="1" instance=ExtResource("14_uphqo")]
+position = Vector2(-279.373, -84)
+
+[node name="LevelExitDoorLock2" parent="LevelExitDoor" index="2" instance=ExtResource("14_uphqo")]
+position = Vector2(198.265, -84)
+
+[node name="RightExitDoorLockInteractable" parent="." index="14" node_paths=PackedStringArray("targets") instance=ExtResource("5_kt0m2")]
+position = Vector2(150.201, 2407)
+interactable_resource = SubResource("Resource_x2ve3")
+effect = SubResource("Resource_fe8rj")
+targets = [NodePath("../LevelExitDoor/LevelExitDoorLock2")]
+
+[node name="Interactable" parent="." index="15" node_paths=PackedStringArray("targets") instance=ExtResource("5_kt0m2")]
+position = Vector2(-3166.23, 1566)
+interactable_resource = SubResource("Resource_d8evn")
+effect = SubResource("Resource_50xmh")
+targets = [NodePath("../LevelExitDoor/LevelExitDoorLock")]
+
+[node name="InteractLabel" parent="Interactable" index="4"]
+offset_left = 140.187
+offset_top = -116.0
+offset_right = 204.187
+offset_bottom = -67.0
+
 [editable path="AlarmInteractable"]
 [editable path="DoorInteractable"]
 [editable path="HallwayLightsInteractable"]
+[editable path="Interactable"]

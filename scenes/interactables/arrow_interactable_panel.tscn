@@ -23,11 +23,15 @@ script = ExtResource("1_pm3yv")
 arrow_resource = SubResource("Resource_560c0")
 
 [node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
-offset_left = 1142.0
-offset_top = 531.0
-offset_right = 1143.0
-offset_bottom = 549.0
+offset_left = 848.0
+offset_top = 173.0
+offset_right = 969.0
+offset_bottom = 191.0
+text = "dfdfdfsadf"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ArrowContainerParent" type="HBoxContainer" parent="."]
 layout_mode = 2

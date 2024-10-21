@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5klrqrejhb0r"]
+
+[ext_resource type="Script" path="res://scenes/structures/level_exit_door_lock.gd" id="1_b6che"]
+[ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="2_m012n"]
+
+[node name="LevelExitDoorLock" type="Node2D"]
+script = ExtResource("1_b6che")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.898276, 1.3262e-06, 6.13605e-07, 1)
+energy = 7.0
+texture = ExtResource("2_m012n")
+texture_scale = 0.25
