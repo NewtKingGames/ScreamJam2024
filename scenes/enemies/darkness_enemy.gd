@@ -3,11 +3,17 @@ extends CharacterBody2D
 
 var player: Player
 
-const chase_time: float = 10.0
-var time_in_chase: float = 0.0
+# TODO - delete these two variables
+@export var chase_time: float = 10.0
+@export var time_to_chase: float =  1.5
+
+
+# This boolean is really a "is_player_in_darkness"
 var is_chasing_player: bool = false
 var starting_position: Vector2
 var chase_speed: float
+
+
 # TODO - fix the loop in this clip. The difference between the start and end isn't enough time
 @onready var footstep_audio_player: AudioStreamPlayer2D = $FootstepAudioPlayer
 @onready var starting_volume: float = footstep_audio_player.volume_db

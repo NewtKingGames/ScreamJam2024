@@ -1,10 +1,7 @@
 extends EnemyState
 class_name EnemyStarting
 
-
-var time_to_chase: float = 1.5
 var current_time: float = 0
-
 
 func enter() -> void:
 	current_time = 0
@@ -17,6 +14,5 @@ func process(delta: float) -> void:
 		transition_requested.emit(self, State.IDLE)
 	else:
 		current_time += delta
-		print(current_time)
-		if current_time >= time_to_chase:
+		if current_time >= enemy.time_to_chase:
 			transition_requested.emit(self, State.CHASING)
