@@ -1,6 +1,7 @@
 class_name Level
 extends Node2D
 
+@onready var transition_rect: ColorRect = $CanvasLayer/TransitionRect
 
 @export var next_level: PackedScene
 
@@ -10,6 +11,8 @@ const ZAPSPLAT_LAB_MACHINE_WHIRR_107536 = preload("res://sounds/zapsplat_lab_mac
 
 
 func _ready() -> void:
+	var level_trans_tween: Tween = create_tween()
+	level_trans_tween.tween_property(transition_rect, "color", Color(0, 0, 0, 0.0), 1.0)
 	interactable_panel.hide()
 	Events.player_started_interaction.connect(_on_player_started_interaction)
 	Events.player_exited_interaction.connect(_on_player_exited_interaction)
@@ -23,7 +26,10 @@ func _on_player_exited_interaction(interactable_node: InteractableNode) -> void:
 
 func player_exited_level():
 	if next_level:
-		await get_tree().create_timer(1).timeout
+		var level_trans_tween: Tween = create_tween()
+		level_trans_tween.tween_property(transition_rect, "color", Color(0, 0, 0, 1.0), 1.5)
+		await level_trans_tween.finished
+		#await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_packed(next_level)
 	else:
 		print("game ended")
