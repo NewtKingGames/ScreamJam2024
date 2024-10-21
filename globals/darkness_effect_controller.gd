@@ -26,8 +26,8 @@ func _on_player_entered_darkness() -> void:
 	print("entering darkness")
 	tween.kill()
 	tween = create_tween()
-	tween.tween_interval(1.0)
-	tween.tween_property(camera, "zoom", camera_darkness_zoom, 5)
+	tween.tween_interval(2.0)
+	tween.tween_property(camera, "zoom", camera_darkness_zoom, 15)
 	# What should the effects be?
 
 

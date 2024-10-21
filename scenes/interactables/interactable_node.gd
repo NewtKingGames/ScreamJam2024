@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var startup_noise: AudioStreamPlayer2D = $StartupNoise
 @onready var powerdown_noise: AudioStreamPlayer2D = $PowerdownNoise
 
+signal interactable_complete
 
 const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
 
@@ -55,6 +56,7 @@ func player_exit_interaction() -> void:
 
 func do_effect() -> void:
 	await get_tree().create_timer(effect_delay).timeout
+	interactable_complete.emit()
 	if not targets:
 		return
 	effect.perform_actions(targets)

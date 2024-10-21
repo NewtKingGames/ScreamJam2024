@@ -4,6 +4,7 @@ extends Node2D
 @onready var transition_rect: ColorRect = $CanvasLayer/TransitionRect
 
 @export var next_level: PackedScene
+var darkness_enemy_scene: PackedScene = load("res://scenes/enemies/darkness_enemy.tscn")
 
 @onready var interactable_panel: InteractablePanel = %InteractablePanel
 const ZAPSPLAT_LAB_MACHINE_WHIRR_107536 = preload("res://sounds/zapsplat_lab_machine_whirr_107536.mp3")
@@ -32,3 +33,8 @@ func player_exited_level():
 		get_tree().change_scene_to_packed(next_level)
 	else:
 		print("game ended")
+
+func spawn_darkness_enemy(position: Vector2):
+	var darkness_enemy: DarknessEnemy = darkness_enemy_scene.instantiate()
+	darkness_enemy.position = position
+	add_child(darkness_enemy)

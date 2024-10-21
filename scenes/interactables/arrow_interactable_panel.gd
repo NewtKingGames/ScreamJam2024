@@ -40,7 +40,6 @@ func handle_input(input: InputEvent):
 		return
 	var index_from_handle_input = arrow_resource.handle_input(input)
 	if index_from_handle_input != -1:
-		print("corret input!")
 		SfxPlayer.play(MEDIUM_BEEP, false, randf_range(0.95, 1.05))
 		arrow_icon_index = index_from_handle_input
 		arrow_container_parent.get_child(arrow_icon_index).set_icon(true)

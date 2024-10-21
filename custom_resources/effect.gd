@@ -7,7 +7,7 @@ extends Resource
 
 func perform_action(target: Node2D):
 	# TODO add some null checks?
-	if not target.has_method(method_name):
+	if not target or not target.has_method(method_name):
 		print("SOMETHING WENT WRONG IN EFFECT")
 		return
 	target.call(method_name)

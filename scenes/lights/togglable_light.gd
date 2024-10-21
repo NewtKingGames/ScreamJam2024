@@ -3,6 +3,7 @@ extends PointLight2D
 
 @onready var turn_on_sound: AudioStreamPlayer2D = $TurnOnSound
 @onready var turn_off_sound: AudioStreamPlayer2D = $TurnOffSound
+@onready var light_area: LightArea = $LightArea
 
 
 func turn_on():
@@ -17,5 +18,4 @@ func toggle_light(on: bool):
 	else:
 		turn_off_sound.play()
 	enabled = on
-	# TODO play sound effect
-	
+	light_area.is_active = on
