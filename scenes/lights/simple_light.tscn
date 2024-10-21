@@ -24,7 +24,7 @@ shape = SubResource("CapsuleShape2D_sjklm")
 texture = ExtResource("1_m5bct")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.937852, 0.639354, 0.274969, 1)
+color = Color(0.637253, 0.851545, 0.94078, 1)
 energy = 7.5
 shadow_enabled = true
 shadow_filter = 1
