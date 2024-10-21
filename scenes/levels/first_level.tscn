@@ -102,7 +102,6 @@ rotation = -1.58788
 autoplay = false
 
 [node name="DirectionalLight2D" parent="." index="4"]
-visible = true
 energy = 1.0
 
 [node name="Bed" parent="." index="5" instance=ExtResource("2_k1cmf")]

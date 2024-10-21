@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqncdno4rb7be"]
+[gd_scene load_steps=7 format=3 uid="uid://bqncdno4rb7be"]
 
 [ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="1_awc2l"]
 [ext_resource type="PackedScene" uid="uid://dxctqyvxk18p8" path="res://scenes/lights/light_area.tscn" id="2_w4euv"]
 [ext_resource type="Script" path="res://scenes/lights/togglable_light.gd" id="2_xf2bp"]
+[ext_resource type="AudioStream" uid="uid://d1001qkvjlws6" path="res://sounds/BigSwitchOne.mp3" id="4_7id3y"]
+[ext_resource type="AudioStream" uid="uid://crv6mieqd38hf" path="res://sounds/BigSwitchTwo.mp3" id="5_h552f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sicc"]
 radius = 210.13
@@ -18,3 +20,9 @@ script = ExtResource("2_xf2bp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
 shape = SubResource("CircleShape2D_1sicc")
 debug_color = Color(0.509114, 0.790856, 0.802061, 0.364706)
+
+[node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7id3y")
+
+[node name="TurnOffSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h552f")
