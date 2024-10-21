@@ -3,6 +3,8 @@ extends StaticBody2D
 
 # TODO - you could add one or two sounds to make this less tedius
 @onready var startup_noise: AudioStreamPlayer2D = $StartupNoise
+@onready var powerdown_noise: AudioStreamPlayer2D = $PowerdownNoise
+
 
 const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
 
@@ -36,6 +38,7 @@ func _on_player_entered_area(body: Node2D) -> void:
 	
 func _on_player_exited_area(body: Node2D) -> void:
 	#if is_interactable:
+	powerdown_noise.play()
 	interact_label.hide()
 	var player = body as Player
 	if player:

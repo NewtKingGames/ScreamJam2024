@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdepptjbqpbne"]
+[gd_scene load_steps=11 format=3 uid="uid://bdepptjbqpbne"]
 
 [ext_resource type="Script" path="res://scenes/interactables/interactable_node.gd" id="1_3nbso"]
 [ext_resource type="Texture2D" uid="uid://bsvrp2aur4m26" path="res://sprites/computer.png" id="2_gt8a5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="5_aopd2"]
 [ext_resource type="Script" path="res://scenes/interactables/interactable_light.gd" id="6_subiu"]
 [ext_resource type="AudioStream" uid="uid://dghxyhtc083d1" path="res://sounds/8bit-computer-startup.mp3" id="7_hc4fd"]
+[ext_resource type="AudioStream" uid="uid://myx6is3vtmn7" path="res://sounds/computer_off.mp3" id="8_eccjv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvwkj"]
 radius = 64.0
@@ -59,3 +60,6 @@ script = ExtResource("6_subiu")
 
 [node name="StartupNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_hc4fd")
+
+[node name="PowerdownNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_eccjv")
