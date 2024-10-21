@@ -102,6 +102,7 @@ rotation = -1.58788
 autoplay = false
 
 [node name="DirectionalLight2D" parent="." index="4"]
+visible = true
 energy = 1.0
 
 [node name="Bed" parent="." index="5" instance=ExtResource("2_k1cmf")]
@@ -147,6 +148,7 @@ position = Vector2(1381.85, 325)
 interactable_resource = SubResource("Resource_1obgc")
 effect = SubResource("Resource_7puco")
 targets = [NodePath("../HallwayLights/TogglableHallwayLight"), NodePath("../HallwayLights/TogglableHallwayLight2"), NodePath("../HallwayLights/TogglableHallwayLight3"), NodePath("../HallwayLights/TogglableHallwayLight4")]
+effect_delay = 0.5
 
 [node name="InteractLabel" parent="HallwayLightsInteractable" index="4"]
 offset_left = -159.213
