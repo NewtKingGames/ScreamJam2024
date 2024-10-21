@@ -7,6 +7,8 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var panel: Panel = $CanvasLayer/Panel
 @onready var label: Label = %Label
+@onready var interact_label: Label = $InteractLabel
+
 
 
 var is_player_near: bool = false
@@ -14,11 +16,13 @@ var is_paper_active: bool = false
 
 func _ready() -> void:
 	panel.hide()
+	interact_label.hide()
 	area_2d.body_entered.connect(_on_body_entered)
 	area_2d.body_exited.connect(_on_body_exited)
 	label.text = paper_message
 
 func _process(delta: float) -> void:
+	interact_label.visible = is_player_near
 	if is_player_near and Input.is_action_just_pressed("interact"):
 		read_paper()
 	if is_paper_active and Input.is_action_just_pressed("exit"):
