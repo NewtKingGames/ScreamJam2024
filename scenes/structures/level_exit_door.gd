@@ -7,6 +7,7 @@ extends Node2D
 # The parent component will determine the number of locks it has dynamically by reading it's children
 
 @onready var big_door: Door = $BigDoor
+@onready var togglable_light: TogglableLight = $TogglableLight
 
 var num_locks: int = 0
 var num_unlocked_locks: int = 0
@@ -22,3 +23,4 @@ func _on_lock_unlocked(lock: LevelExitDoorLock) -> void:
 	num_unlocked_locks += 1
 	if num_unlocked_locks == num_locks:
 		big_door.open()
+		togglable_light.turn_on()
