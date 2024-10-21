@@ -7,9 +7,13 @@ extends PointLight2D
 
 
 func turn_on():
+	if enabled:
+		return
 	toggle_light(true)
 	
 func turn_off():
+	if not enabled:
+		return
 	toggle_light(false)
 
 func toggle_light(on: bool):

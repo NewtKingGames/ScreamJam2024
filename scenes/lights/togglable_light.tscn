@@ -18,8 +18,9 @@ script = ExtResource("2_xf2bp")
 [node name="LightArea" parent="." instance=ExtResource("2_w4euv")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+scale = Vector2(1.90757, 1.90757)
 shape = SubResource("CircleShape2D_1sicc")
-debug_color = Color(0.509114, 0.790856, 0.802061, 0.364706)
+debug_color = Color(0.709993, 0.542633, 0.226645, 0.364706)
 
 [node name="TurnOnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_7id3y")
