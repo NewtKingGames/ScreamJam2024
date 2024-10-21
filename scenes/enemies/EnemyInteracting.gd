@@ -6,12 +6,12 @@ const chase_time: float = 10.0
 var time_in_chase: float = 0.0
 
 func enter() -> void:
-	print("entering the chase state!!")
 	enemy.footstep_audio_player.volume_db = enemy.starting_volume
 	enemy.footstep_audio_player.play()
 
 func exit() -> void:
 	enemy.footstep_audio_player.stop()
+	enemy.position = enemy.starting_position
 
 func process(delta: float) -> void:
 	if not enemy.is_chasing_player:

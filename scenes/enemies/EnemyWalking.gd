@@ -8,7 +8,6 @@ var current_time: float = 0
 
 func enter() -> void:
 	current_time = 0
-	print("monster in start up state")
 	
 func exit() -> void:
 	pass

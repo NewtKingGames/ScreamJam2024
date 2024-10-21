@@ -33,9 +33,7 @@ func _process(delta: float) -> void:
 		#if time_in_chase >= chase_time:
 			#print("player died")
 			#exit_chase()
-		#move_and_slide()
-		
-# TODO - add some kind of delay before the chase starts and add some visual/audio queue that the player walked into the dark
+
 func _on_player_entered_darkness() -> void:
 	enter_chase()
 

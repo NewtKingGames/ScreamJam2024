@@ -29,7 +29,6 @@ func player_exited_level():
 		var level_trans_tween: Tween = create_tween()
 		level_trans_tween.tween_property(transition_rect, "color", Color(0, 0, 0, 1.0), 1.5)
 		await level_trans_tween.finished
-		#await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_packed(next_level)
 	else:
 		print("game ended")
