@@ -32,11 +32,11 @@ func _on_player_entered_area(body: Node2D) -> void:
 			player.entered_interactable_area(self)
 	
 func _on_player_exited_area(body: Node2D) -> void:
-	if is_interactable:
-		interact_label.hide()
-		var player = body as Player
-		if player:
-			player.exited_interactable_area(self)
+	#if is_interactable:
+	interact_label.hide()
+	var player = body as Player
+	if player:
+		player.exited_interactable_area(self)
 
 func player_interacted() -> void:
 	Events.player_started_interaction.emit(self)
