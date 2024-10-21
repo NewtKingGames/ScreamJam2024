@@ -1,6 +1,9 @@
 class_name InteractableNode
 extends StaticBody2D
 
+# TODO - you could add one or two sounds to make this less tedius
+@onready var startup_noise: AudioStreamPlayer2D = $StartupNoise
+
 const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
 
 @export var interactable_resource: Interactable
@@ -39,6 +42,8 @@ func _on_player_exited_area(body: Node2D) -> void:
 		player.exited_interactable_area(self)
 
 func player_interacted() -> void:
+	startup_noise.pitch_scale = randf_range(0.90, 1.0)
+	startup_noise.play()
 	Events.player_started_interaction.emit(self)
 
 func player_exit_interaction() -> void:
