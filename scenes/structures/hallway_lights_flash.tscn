@@ -408,6 +408,7 @@ sources/0 = SubResource("TileSetAtlasSource_8kvnx")
 
 [node name="HallwayLightsFlash" type="Node2D"]
 script = ExtResource("1_0lh7b")
+pattern = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1, 1)

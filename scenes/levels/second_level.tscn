@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3ljmpjseksc6"]
+[gd_scene load_steps=13 format=3 uid="uid://d3ljmpjseksc6"]
 
 [ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_l063i"]
 [ext_resource type="PackedScene" uid="uid://c5xtvh8dmtuui" path="res://scenes/objects/paper_note.tscn" id="2_6vd7y"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://custom_resources/effect.gd" id="6_oim5q"]
 [ext_resource type="PackedScene" uid="uid://dxctqyvxk18p8" path="res://scenes/lights/light_area.tscn" id="7_2ltd3"]
 [ext_resource type="PackedScene" uid="uid://dsscgxgne6rde" path="res://scenes/lights/simple_light.tscn" id="8_wnsmp"]
+[ext_resource type="PackedScene" uid="uid://26ufgwsaf0w7" path="res://scenes/structures/hallway_lights_flash.tscn" id="9_ipxig"]
 
 [sub_resource type="Resource" id="Resource_jiblx"]
 script = ExtResource("5_cdowd")
@@ -69,3 +70,7 @@ rotation = 1.57079
 [node name="SimpleLight2" parent="." index="10" instance=ExtResource("8_wnsmp")]
 position = Vector2(1048.4, 0)
 rotation = 4.71238
+
+[node name="HallwayLightsFlash" parent="." index="11" instance=ExtResource("9_ipxig")]
+position = Vector2(1560.08, 2829)
+pattern = 0
