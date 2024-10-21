@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c020jdmgab6wk"]
+
+[ext_resource type="Script" path="res://globals/darkness_effect_controller.gd" id="1_r0axw"]
+
+[node name="DarknessEffectController" type="Node"]
+script = ExtResource("1_r0axw")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

@@ -426,7 +426,7 @@ layer_2/tile_data = PackedInt32Array()
 z_index = 1
 position = Vector2(1445.93, 1040)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["camera"]]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 

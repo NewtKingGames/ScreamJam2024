@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*res://globals/events.gd"
 SfxPlayer="*res://globals/sfx_player.tscn"
+DarknessEffectController="*res://globals/darkness_effect_controller.tscn"
 
 [display]
 
