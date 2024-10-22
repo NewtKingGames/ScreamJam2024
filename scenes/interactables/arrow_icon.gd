@@ -1,10 +1,10 @@
 class_name ArrowIcon
 extends TextureRect
 
-const GREEN_ARROW_H = preload("res://sprites/green_arrow_h.png")
-const GREEN_ARROW_V = preload("res://sprites/green_arrow_v.png")
-const RED_ARROW_H = preload("res://sprites/red_arrow_h.png")
-const RED_ARROW_V = preload("res://sprites/red_arrow_v.png")
+var GREEN_ARROW_H = load("res://sprites/green_arrow_h.png")
+var GREEN_ARROW_V = load("res://sprites/green_arrow_v.png")
+var RED_ARROW_H = load("res://sprites/red_arrow_h.png")
+var RED_ARROW_V = load("res://sprites/red_arrow_v.png")
 @export var arrow_direction: ArrowInteractable.ArrowInputType
 
 func _ready():

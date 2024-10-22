@@ -14,13 +14,18 @@ var camera_darkness_zoom: Vector2 = Vector2(1, 1)
 # possibly modulate the whole scene?
 # Make the game even darker?
 
+
 func _ready() -> void:
-	camera = get_tree().get_first_node_in_group("camera") as Camera2D
+	_get_camera_and_player()
 	camera_starting_zoom = camera.zoom
-	player = get_tree().get_first_node_in_group("player")
 	tween = create_tween()
 	Events.player_entered_darkness.connect(_on_player_entered_darkness)
 	Events.player_exited_darkness.connect(_on_player_exited_darkness)
+
+func _get_camera_and_player() -> void:
+	camera = get_tree().get_first_node_in_group("camera") as Camera2D
+	player = get_tree().get_first_node_in_group("player") as Player
+
 
 func _on_player_entered_darkness() -> void:
 	print("entering darkness")

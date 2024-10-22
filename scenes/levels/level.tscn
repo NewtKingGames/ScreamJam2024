@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://dm3jxvrm5qvls"]
+[gd_scene load_steps=41 format=3 uid="uid://dm3jxvrm5qvls"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="1_npkv3"]
 [ext_resource type="Texture2D" uid="uid://duugsft7w5tuv" path="res://resources/scifigraphics/tilesets/interior.png" id="2_ower8"]
 [ext_resource type="PackedScene" uid="uid://b30cg7p0ub3k2" path="res://scenes/player/player.tscn" id="3_log06"]
+[ext_resource type="PackedScene" uid="uid://c020jdmgab6wk" path="res://globals/darkness_effect_controller.tscn" id="6_hyato"]
 [ext_resource type="PackedScene" uid="uid://bwtw0o0h4qxo7" path="res://scenes/interactables/interactable_panel.tscn" id="7_aqous"]
 [ext_resource type="AudioStream" uid="uid://c4faa5d2lwbi5" path="res://sounds/zapsplat_lab_machine_whirr_107536.mp3" id="9_xumkn"]
 
@@ -454,3 +455,5 @@ autoplay = true
 visible = false
 energy = 0.8
 blend_mode = 1
+
+[node name="DarknessEffectController" parent="." instance=ExtResource("6_hyato")]

@@ -5,13 +5,13 @@ extends Panel
 @onready var description_label: Label = $Label
 @onready var arrow_container_parent: HBoxContainer = $ArrowContainerParent
 
-const MEDIUM_BEEP: AudioStream = preload("res://sounds/medium_beep.mp3")
-const ERROR_ONE = preload("res://sounds/error_one.mp3")
+var MEDIUM_BEEP: AudioStream = load("res://sounds/medium_beep.mp3")
+var ERROR_ONE = load("res://sounds/error_one.mp3")
 
 # This class is just responsible for handing the input to the resource and showing visual effects
 @export var arrow_resource: ArrowInteractable
 var arrow_icon_nodes: Array[ArrowIcon] = []
-@export var arrow_icon_scene: PackedScene = preload("res://scenes/interactables/arrow_icon.tscn")
+@export var arrow_icon_scene: PackedScene = load("res://scenes/interactables/arrow_icon.tscn")
 var arrow_icon_index: int = 0
 
 func init(arrow_resource: ArrowInteractable) -> void:

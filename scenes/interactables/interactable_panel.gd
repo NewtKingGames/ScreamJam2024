@@ -5,7 +5,7 @@ extends Panel
 # The idea of this class is to accept an incoming InteractableResource to the player and after
 # the player completes the appropriate actions do the resources effect
 # I'm wondering if you should make child scenes per the different type of interactable object
-const DEFAULT_INPUT_COMPLETE_NOISE: AudioStream = preload("res://sounds/double_beep.wav")
+var DEFAULT_INPUT_COMPLETE_NOISE: AudioStream = load("res://sounds/double_beep.wav")
 
 var arrow_interactable_panel_scene: PackedScene = load("res://scenes/interactables/arrow_interactable_panel.tscn")
 var button_mash_interactable_panel_scene: PackedScene = load("res://scenes/interactables/button_mash_interactable_panel.tscn")

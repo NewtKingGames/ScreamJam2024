@@ -7,7 +7,7 @@ extends StaticBody2D
 
 signal interactable_complete
 
-const COMPUTER_DEACTIVATED_SPRITE = preload("res://sprites/computer3.png")
+var COMPUTER_DEACTIVATED_SPRITE = load("res://sprites/computer3.png")
 
 @export var interactable_resource: Interactable
 @export var effect: Effect

@@ -8,8 +8,8 @@ enum LightPattern{STATIC, IN_ORDER, BACK_FORTH}
 @export var pattern: LightPattern = LightPattern.STATIC
 @export var light_on_duration: float = 4.5
 @export var delay_until_next_light: float = 4
+@export var auto_start_pattern: bool = true
 var are_all_lights_on: bool = false
-var are_lights_powered: bool = true
 var are_lights_flashing: bool = true
 var light_child_index: int = 0
 var next_light_child_index: int = 0
@@ -21,7 +21,7 @@ func _ready() -> void:
 	next_light_child_index = get_next_light_index(light_child_index)
 	total_light_children = lights.get_child_count()
 	toggle_all_lights(are_all_lights_on)
-	if are_lights_powered:
+	if auto_start_pattern:
 		start_light_pattern()
 
 func move_to_next_lights() -> void:
