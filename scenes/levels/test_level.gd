@@ -18,6 +18,7 @@ func _ready() -> void:
 	Events.player_started_interaction.connect(_on_player_started_interaction)
 	Events.player_exited_interaction.connect(_on_player_exited_interaction)
 	Events.player_exited_level.connect(player_exited_level)
+	Events.player_died.connect(_on_player_died)
 	
 func _on_player_started_interaction(interactable_node: InteractableNode) -> void:
 	interactable_panel.show_panel(interactable_node)
@@ -38,3 +39,7 @@ func spawn_darkness_enemy(position: Vector2):
 	var darkness_enemy: DarknessEnemy = darkness_enemy_scene.instantiate()
 	darkness_enemy.position = position
 	add_child(darkness_enemy)
+
+func _on_player_died() -> void:
+	print("ending game")
+	get_tree().reload_current_scene()

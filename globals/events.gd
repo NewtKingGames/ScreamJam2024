@@ -11,6 +11,8 @@ signal player_exited_darkness
 
 signal player_exited_level
 
+signal player_died
+
 signal player_started_interaction(interactable_node: InteractableNode)
 signal player_exited_interaction(interactable_node: InteractableNode)
 

@@ -24,5 +24,6 @@ func process(delta: float) -> void:
 	enemy.calculate_chase_speed(enemy.chase_time - time_in_chase)
 	if time_in_chase >= enemy.chase_time:
 		print("player died")
-		# TODO fix this exit chase thing
+		Events.player_died.emit()
 		enemy.exit_chase()
+		

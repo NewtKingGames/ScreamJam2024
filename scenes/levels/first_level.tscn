@@ -260,7 +260,9 @@ These dark hallways gives me the creeps"
 [node name="PaperNoteByHallway" parent="." index="19" instance=ExtResource("17_vdgv4")]
 position = Vector2(-70.0937, 1399)
 rotation = -0.151914
-paper_message = "The higher ups started adding multi module locks to the doors after a power surge, end up spending the first half of our shift unlocking the whole place"
+paper_message = "The higher ups started adding multi module locks to the doors
+after a power surge, end up spending the first half of our shift 
+unlocking the whole place"
 
 [node name="InteractableSecondRoom" parent="." index="20" node_paths=PackedStringArray("targets") instance=ExtResource("5_kt0m2")]
 position = Vector2(-827.105, 650)
@@ -315,7 +317,9 @@ shape = SubResource("RectangleShape2D_634uo")
 position = Vector2(-2718.63, 1573)
 paper_message = "I'm hearing something in these hallways after these power surges. 
 
-Security says they haven't seen anything, but what the fuck can they see when the lights are off. I'm putting in my two weeks and getting out of here."
+Security says they haven't seen anything, but what the fuck can 
+they see when the lights are off.
+I'm putting in my two weeks and getting out of here."
 
 [node name="LightArea" parent="." index="24" instance=ExtResource("18_jf2w2")]
 position = Vector2(1281.71, 1808)
