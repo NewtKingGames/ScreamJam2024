@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpu0dpust3w70"]
+
+[ext_resource type="AudioStream" uid="uid://lym6q0h8t23l" path="res://sounds/end_game_music.mp3" id="1_3dv8s"]
+[ext_resource type="Script" path="res://scenes/levels/end_game_scene.gd" id="1_i5432"]
+[ext_resource type="AudioStream" uid="uid://nvr76or8uk72" path="res://sounds/giant_walking_fast.mp3" id="3_gniby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbf71"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="EndGameScene" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbf71")
+script = ExtResource("1_i5432")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3dv8s")
+volume_db = -19.5
+autoplay = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 294.0
+offset_right = 224.0
+offset_bottom = 343.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Terminal Horror"
+
+[node name="AuthorLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.0
+offset_top = 407.0
+offset_right = 331.0
+offset_bottom = 456.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "by NewtKing
+"
+
+[node name="ThanksForPlaying" type="Label" parent="."]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 942.0
+offset_right = 1412.0
+offset_bottom = 967.0
+theme_override_font_sizes/font_size = 24
+text = "Part of the 2024 ScreamJam, thanks for playing!"
+
+[node name="Footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gniby")
+volume_db = -10.0

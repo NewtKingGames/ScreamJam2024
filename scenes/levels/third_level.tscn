@@ -135,7 +135,7 @@ scale = Vector2(0.998664, 1)
 idle_color = Color(1, 0.298039, 0.305882, 1)
 
 [node name="SimpleLight3" parent="StartingRoomLights" index="2" instance=ExtResource("5_mygmj")]
-position = Vector2(657, 1040)
+position = Vector2(657, 954)
 rotation = -1.57079
 scale = Vector2(0.998664, 1)
 idle_color = Color(1, 0.298039, 0.305882, 1)
