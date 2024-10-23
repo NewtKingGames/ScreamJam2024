@@ -1,15 +1,17 @@
 extends EnemyState
 class_name EnemyChasing
-
+const MONSTER_GROWL = preload("res://sounds/monster_growl.mp3")
+const GASP_AFTER_SCARE = preload("res://sounds/gasp-after-scare.mp3")
 var time_in_chase: float = 0.0
-
 func enter() -> void:
+	SfxPlayer.play(MONSTER_GROWL)
 	enemy.footstep_audio_player.volume_db = enemy.starting_volume
 	enemy.footstep_audio_player.play()
 
 func exit() -> void:
 	enemy.footstep_audio_player.stop()
 	enemy.position = enemy.starting_position
+	SfxPlayer.play(GASP_AFTER_SCARE)
 
 func process(delta: float) -> void:
 	if not enemy.is_chasing_player:
