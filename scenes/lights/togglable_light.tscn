@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1sicc"]
 radius = 210.13
 
-[node name="TogglableLight" type="PointLight2D"]
+[node name="TogglableLight" type="PointLight2D" groups=["light"]]
 energy = 3.37
 texture = ExtResource("1_awc2l")
 texture_scale = 1.2

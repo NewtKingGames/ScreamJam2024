@@ -7,7 +7,8 @@ func enter() -> void:
 	time_in_chase = 0.0
 	SfxPlayer.play(MONSTER_GROWL)
 	enemy.footstep_audio_player.volume_db = enemy.starting_volume
-	enemy.footstep_audio_player.play()
+	enemy.footstep_audio_player.stop()
+	enemy.footstep_audio_player.play(0)
 
 func exit() -> void:
 	enemy.footstep_audio_player.stop()
@@ -19,7 +20,7 @@ func process(delta: float) -> void:
 		transition_requested.emit(self, State.IDLE)
 		return
 	time_in_chase += delta
-	enemy.footstep_audio_player.volume_db = clampf(enemy.starting_volume + 35*enemy.starting_volume*(time_in_chase/enemy.chase_time), 0, 17)
+	enemy.footstep_audio_player.volume_db = clampf(enemy.starting_volume + 45*enemy.starting_volume*(time_in_chase/enemy.chase_time), 0, 25)
 	enemy.velocity = enemy.chase_speed * enemy.global_position.direction_to(enemy.player.global_position)
 	enemy.calculate_chase_speed(enemy.chase_time - time_in_chase)
 	if time_in_chase >= enemy.chase_time:

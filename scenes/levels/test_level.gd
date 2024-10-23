@@ -9,7 +9,7 @@ var darkness_enemy_scene: PackedScene = load("res://scenes/enemies/darkness_enem
 @onready var interactable_panel: InteractablePanel = %InteractablePanel
 var ZAPSPLAT_LAB_MACHINE_WHIRR_107536 = load("res://sounds/zapsplat_lab_machine_whirr_107536.mp3")
 @onready var ambient_noise_player: AudioStreamPlayer = $AmbientNoisePlayer
-
+const SCARY_NOISE = preload("res://sounds/scary_noise.mp3")
 
 func _ready() -> void:
 	#var level_trans_tween: Tween = create_tween()
@@ -41,5 +41,9 @@ func spawn_darkness_enemy(position: Vector2):
 	add_child(darkness_enemy)
 
 func _on_player_died() -> void:
-	print("ending game")
+	for child in get_tree().get_nodes_in_group("light"):
+		if "turn_off" in child:
+			child.turn_off()
+	SfxPlayer.play(SCARY_NOISE)
+	await get_tree().create_timer(.75).timeout
 	get_tree().reload_current_scene()

@@ -4,7 +4,7 @@ extends CharacterBody2D
 var player: Player
 
 # TODO - delete these two variables
-@export var chase_time: float = 10.0
+@export var chase_time: float = 8.0
 @export var time_to_chase: float =  1.5
 
 

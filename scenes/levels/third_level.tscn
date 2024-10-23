@@ -104,6 +104,12 @@ layer_1/tile_data = PackedInt32Array(196616, 262144, 0, 196617, 262144, 0, 65555
 [node name="Player" parent="." index="1"]
 position = Vector2(1346.8, 986)
 
+[node name="DarknessEnemy" parent="Player" index="8" instance=ExtResource("15_4l88l")]
+position = Vector2(-856.144, -2)
+
+[node name="FootstepAudioPlayer" parent="Player/DarknessEnemy" index="1"]
+volume_db = 3.0
+
 [node name="DirectionalLight2D" parent="." index="4"]
 visible = true
 
@@ -193,6 +199,7 @@ shape = SubResource("RectangleShape2D_b4u0m")
 [node name="EndLevelTenseMusic" type="AudioStreamPlayer" parent="." index="16"]
 stream = ExtResource("11_712wu")
 volume_db = -4.308
+bus = &"Music"
 
 [node name="HallwayLockedDoorWithInteractable" type="Node2D" parent="." index="17"]
 position = Vector2(3270.37, 597)
@@ -270,13 +277,7 @@ offset_top = 105.0
 offset_right = 32.9585
 offset_bottom = 154.0
 
-[node name="DarknessEnemy" parent="." index="21" instance=ExtResource("15_4l88l")]
-position = Vector2(1892.53, 1019)
-
-[node name="FootstepAudioPlayer" parent="DarknessEnemy" index="1"]
-volume_db = 3.0
-
-[node name="LightFlickOff" type="Node2D" parent="." index="22"]
+[node name="LightFlickOff" type="Node2D" parent="." index="21"]
 position = Vector2(8607.5, 954)
 script = ExtResource("16_37520")
 
@@ -290,7 +291,7 @@ position = Vector2(-136.183, 28)
 scale = Vector2(1.29397, 34.8337)
 shape = SubResource("RectangleShape2D_o7vch")
 
-[node name="LightFlickOff2" type="Node2D" parent="." index="23"]
+[node name="LightFlickOff2" type="Node2D" parent="." index="22"]
 position = Vector2(10676.3, 954)
 script = ExtResource("16_37520")
 
@@ -304,7 +305,7 @@ position = Vector2(-136.183, 28)
 scale = Vector2(1.29397, 34.8337)
 shape = SubResource("RectangleShape2D_o7vch")
 
-[node name="LightFlickOff3" type="Node2D" parent="." index="24"]
+[node name="LightFlickOff3" type="Node2D" parent="." index="23"]
 position = Vector2(13033.4, 954)
 script = ExtResource("16_37520")
 
@@ -318,18 +319,18 @@ position = Vector2(-136.183, 28)
 scale = Vector2(1.29397, 34.8337)
 shape = SubResource("RectangleShape2D_o7vch")
 
-[node name="LevelExitDoor" parent="." index="25" instance=ExtResource("6_haloi")]
+[node name="LevelExitDoor" parent="." index="24" instance=ExtResource("6_haloi")]
 position = Vector2(15280.4, 990)
 rotation = -1.57079
 scale = Vector2(1.158, 1.158)
 
-[node name="LevelExitInteractable" parent="." index="26" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+[node name="LevelExitInteractable" parent="." index="25" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
 position = Vector2(15017.1, 1244)
 interactable_resource = SubResource("Resource_vgdkt")
 effect = SubResource("Resource_flt24")
 targets = [NodePath("../LevelExitDoor")]
 
-[node name="LevelExitNodes" type="Node2D" parent="." index="27"]
+[node name="LevelExitNodes" type="Node2D" parent="." index="26"]
 position = Vector2(15774.1, 1023)
 script = ExtResource("17_74gtb")
 
@@ -360,9 +361,9 @@ energy = 0.0
 texture = ExtResource("17_hsnuq")
 texture_scale = 6.0
 
+[editable path="Player/DarknessEnemy"]
 [editable path="StartLevelInteractable"]
 [editable path="HallwayLockedDoorWithInteractable/Interactable"]
 [editable path="HallwayLockedDoorWithInteractable2/Interactable"]
 [editable path="HallwayLockedDoorWithInteractable3/Interactable"]
 [editable path="HallwayLockedDoorWithInteractable4/Interactable"]
-[editable path="DarknessEnemy"]

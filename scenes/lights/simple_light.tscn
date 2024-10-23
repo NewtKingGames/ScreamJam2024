@@ -17,7 +17,7 @@ polygon = PackedVector2Array(-77, 13, -78, 16, -88, 14, -98, 6, -98, -9, -85, -1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8boov"]
 size = Vector2(20, 80.571)
 
-[node name="SimpleLight" type="StaticBody2D"]
+[node name="SimpleLight" type="StaticBody2D" groups=["light"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_0ckm5")
