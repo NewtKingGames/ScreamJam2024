@@ -13,6 +13,7 @@ var tween: Tween
 
 func _ready() -> void:
 	tween = create_tween().set_loops()
+	point_light_2d.color = idle_color
 	
 #
 #func on() -> void:

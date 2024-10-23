@@ -1,0 +1,255 @@
+[gd_scene load_steps=25 format=3 uid="uid://bqgydqgclogh7"]
+
+[ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_hq5kr"]
+[ext_resource type="PackedScene" uid="uid://26ufgwsaf0w7" path="res://scenes/structures/hallway_lights_flash.tscn" id="2_yjm6t"]
+[ext_resource type="PackedScene" uid="uid://c5xtvh8dmtuui" path="res://scenes/objects/paper_note.tscn" id="3_bsp3c"]
+[ext_resource type="Texture2D" uid="uid://bb3wbb75fddpa" path="res://resources/scifigraphics/decals/blood.png" id="4_083ex"]
+[ext_resource type="PackedScene" uid="uid://dsscgxgne6rde" path="res://scenes/lights/simple_light.tscn" id="5_mygmj"]
+[ext_resource type="PackedScene" uid="uid://cbrfrebvcck4x" path="res://scenes/structures/big_door.tscn" id="6_haloi"]
+[ext_resource type="PackedScene" uid="uid://bdepptjbqpbne" path="res://scenes/interactables/interactable.tscn" id="7_2jfq7"]
+[ext_resource type="Script" path="res://custom_resources/button_prompt_interactable.gd" id="8_apcn0"]
+[ext_resource type="Script" path="res://custom_resources/effect.gd" id="9_5y1j4"]
+[ext_resource type="Script" path="res://scenes/levels/hallway_trigger.gd" id="10_ji0hj"]
+[ext_resource type="AudioStream" uid="uid://6xwwf3xbr7wd" path="res://sounds/final_level_music.mp3" id="11_712wu"]
+[ext_resource type="Script" path="res://custom_resources/arrow_interactable.gd" id="12_2n2c7"]
+[ext_resource type="Script" path="res://custom_resources/button_mash_interactable.gd" id="13_36t4c"]
+[ext_resource type="PackedScene" uid="uid://bqncdno4rb7be" path="res://scenes/lights/togglable_light.tscn" id="14_gb71d"]
+[ext_resource type="PackedScene" uid="uid://b4nsvp7kl23xr" path="res://scenes/enemies/darkness_enemy.tscn" id="15_4l88l"]
+
+[sub_resource type="Resource" id="Resource_j3jrd"]
+script = ExtResource("8_apcn0")
+messages = Array[String](["Unlock Facility Entrance?"])
+type = 2
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_sh8o3"]
+script = ExtResource("9_5y1j4")
+method_name = "open"
+is_repeatable = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4u0m"]
+size = Vector2(217.277, 20)
+
+[sub_resource type="Resource" id="Resource_252nv"]
+script = ExtResource("12_2n2c7")
+arrow_inputs = Array[int]([3, 3, 2, 1])
+type = 0
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_d6mfw"]
+script = ExtResource("9_5y1j4")
+method_name = "open"
+is_repeatable = true
+
+[sub_resource type="Resource" id="Resource_cnggx"]
+script = ExtResource("13_36t4c")
+starting_progress = 2.08165e-12
+goal_progress = 100.0
+increment_progress = 5.0
+decrement_rate = 1.0
+type = 1
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_tvpqh"]
+script = ExtResource("12_2n2c7")
+arrow_inputs = Array[int]([1, 0, 1, 0, 2, 3])
+type = 0
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_ukl1r"]
+script = ExtResource("12_2n2c7")
+arrow_inputs = Array[int]([1, 0, 2, 3, 0, 0, 1, 0])
+type = 0
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_wpikx"]
+script = ExtResource("9_5y1j4")
+method_name = "open"
+is_repeatable = true
+
+[node name="ThirdLevel" instance=ExtResource("1_hq5kr")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(196614, 65536, 2, 196615, 65536, 2, 196616, 65536, 2, 196617, 65536, 2, 196618, 65536, 2, 196619, 65536, 2, 196620, 65536, 2, 196621, 65536, 2, 196622, 65536, 2, 196623, 65536, 2, 196624, 65536, 2, 196625, 65536, 2, 196626, 65536, 2, 196627, 65536, 2, 196628, 65536, 2, 196629, 65536, 2, 131091, 65536, 1, 131092, 65536, 1, 131093, 65536, 1, 65555, 65536, 0, 65556, 65536, 0, 65557, 65536, 0, 65538, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196611, 65536, 1, 196610, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 131076, 65536, 1, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 262146, 65536, 2, 262147, 65536, 2, 262148, 65536, 2, 262149, 131072, 2, 262145, 0, 2, 196609, 0, 1, 131073, 0, 1, 65537, 0, 1, 1, 0, 0, 5, 131072, 0)
+layer_1/tile_data = PackedInt32Array(196616, 262144, 0, 196617, 262144, 0, 65555, 262144, 0, 65556, 262144, 0, 65557, 262144, 0, 196615, 262144, 2, 196614, 262144, 2, 196618, 262144, 2, 196619, 262144, 2, 196620, 262144, 2, 196621, 262144, 2, 196623, 262144, 2, 196622, 262144, 2, 196624, 262144, 2, 196625, 262144, 2, 196626, 262144, 2, 196627, 262144, 2, 196628, 262144, 2, 196629, 262144, 2, 65541, 196608, 2, 5, 327680, 0, 4, 262144, 0, 3, 262144, 0, 2, 262144, 0, 1, 196608, 0, 65537, 196608, 1, 131073, 196608, 1, 196609, 196608, 1, 262145, 196608, 2, 262146, 262144, 0, 262147, 262144, 0, 262148, 262144, 0, 262149, 327680, 2, 196613, 196608, 0)
+
+[node name="DirectionalLight2D" parent="." index="4"]
+visible = true
+
+[node name="HallwayLightsFlash" parent="." index="6" instance=ExtResource("2_yjm6t")]
+position = Vector2(5461.3, 1172)
+rotation = 1.57079
+light_on_duration = 6.0
+auto_start_pattern = false
+backwards = true
+
+[node name="PaperNote" parent="." index="7" instance=ExtResource("3_bsp3c")]
+position = Vector2(1752.34, 906)
+rotation = 0.615779
+paper_message = "I can't fucking believe it I'm almost out here. Just need to get past the last system locks and then I can open the blast door."
+
+[node name="BloodSplatter" type="Sprite2D" parent="." index="8"]
+position = Vector2(4220.64, 897)
+rotation = 1.51839
+scale = Vector2(0.191818, 0.191818)
+texture = ExtResource("4_083ex")
+
+[node name="BloodSplatter2" type="Sprite2D" parent="." index="9"]
+position = Vector2(4928.58, 1199)
+rotation = 3.18244
+scale = Vector2(0.191818, 0.191818)
+texture = ExtResource("4_083ex")
+
+[node name="BloodSplatter3" type="Sprite2D" parent="." index="10"]
+position = Vector2(6310.43, 911)
+rotation = 4.54482
+scale = Vector2(0.191818, 0.191818)
+texture = ExtResource("4_083ex")
+
+[node name="BloodSplatter4" type="Sprite2D" parent="." index="11"]
+position = Vector2(7394.88, 1244)
+rotation = 5.69708
+scale = Vector2(0.191818, 0.191818)
+texture = ExtResource("4_083ex")
+
+[node name="BigDoor" parent="." index="12" instance=ExtResource("6_haloi")]
+position = Vector2(2410.22, 957)
+rotation = 1.57079
+
+[node name="StartingRoomLights" type="Node" parent="." index="13"]
+
+[node name="SimpleLight" parent="StartingRoomLights" index="0" instance=ExtResource("5_mygmj")]
+position = Vector2(1341, 275)
+scale = Vector2(0.998664, 1)
+idle_color = Color(1, 0.298039, 0.305882, 1)
+
+[node name="SimpleLight2" parent="StartingRoomLights" index="1" instance=ExtResource("5_mygmj")]
+position = Vector2(1348, 1667)
+rotation = -3.14159
+scale = Vector2(0.998664, 1)
+idle_color = Color(1, 0.298039, 0.305882, 1)
+
+[node name="SimpleLight3" parent="StartingRoomLights" index="2" instance=ExtResource("5_mygmj")]
+position = Vector2(657, 1040)
+rotation = -1.57079
+scale = Vector2(0.998664, 1)
+idle_color = Color(1, 0.298039, 0.305882, 1)
+
+[node name="StartLevelInteractable" parent="." index="14" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+position = Vector2(2042.73, 1487)
+rotation = 1.57079
+interactable_resource = SubResource("Resource_j3jrd")
+effect = SubResource("Resource_sh8o3")
+targets = [NodePath("../BigDoor")]
+
+[node name="InteractLabel" parent="StartLevelInteractable" index="4"]
+offset_left = -159.0
+offset_top = 25.0331
+offset_right = -95.0001
+offset_bottom = 74.0331
+rotation = -1.57079
+
+[node name="HallwayTrigger" type="Area2D" parent="." index="15"]
+position = Vector2(2942.93, 1027)
+script = ExtResource("10_ji0hj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HallwayTrigger" index="0"]
+position = Vector2(98.6385, 0)
+scale = Vector2(1.09392, -35.9279)
+shape = SubResource("RectangleShape2D_b4u0m")
+
+[node name="EndLevelTenseMusic" type="AudioStreamPlayer" parent="." index="16"]
+stream = ExtResource("11_712wu")
+
+[node name="HallwayLockedDoorWithInteractable" type="Node2D" parent="." index="17"]
+position = Vector2(3270.37, 597)
+
+[node name="BigDoor" parent="HallwayLockedDoorWithInteractable" index="0" instance=ExtResource("6_haloi")]
+position = Vector2(23.0308, 423)
+rotation = 1.57079
+
+[node name="Interactable" parent="HallwayLockedDoorWithInteractable" index="1" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+position = Vector2(-117.157, 140)
+interactable_resource = SubResource("Resource_252nv")
+effect = SubResource("Resource_d6mfw")
+targets = [NodePath("../BigDoor")]
+
+[node name="InteractLabel" parent="HallwayLockedDoorWithInteractable/Interactable" index="4"]
+offset_left = -31.0415
+offset_top = 105.0
+offset_right = 32.9585
+offset_bottom = 154.0
+
+[node name="HallwayLockedDoorWithInteractable2" type="Node2D" parent="." index="18"]
+position = Vector2(4375.85, 597)
+
+[node name="BigDoor" parent="HallwayLockedDoorWithInteractable2" index="0" instance=ExtResource("6_haloi")]
+position = Vector2(23.0308, 423)
+rotation = 1.57079
+
+[node name="Interactable" parent="HallwayLockedDoorWithInteractable2" index="1" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+position = Vector2(-117.157, 140)
+interactable_resource = SubResource("Resource_cnggx")
+effect = SubResource("Resource_d6mfw")
+targets = [NodePath("../BigDoor")]
+
+[node name="InteractLabel" parent="HallwayLockedDoorWithInteractable2/Interactable" index="4"]
+offset_left = -31.0415
+offset_top = 105.0
+offset_right = 32.9585
+offset_bottom = 154.0
+
+[node name="HallwayLockedDoorWithInteractable3" type="Node2D" parent="." index="19"]
+position = Vector2(5365.17, 597)
+
+[node name="BigDoor" parent="HallwayLockedDoorWithInteractable3" index="0" instance=ExtResource("6_haloi")]
+position = Vector2(23.0308, 423)
+rotation = 1.57079
+
+[node name="Interactable" parent="HallwayLockedDoorWithInteractable3" index="1" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+position = Vector2(-117.157, 140)
+interactable_resource = SubResource("Resource_tvpqh")
+effect = SubResource("Resource_d6mfw")
+targets = [NodePath("../BigDoor")]
+
+[node name="InteractLabel" parent="HallwayLockedDoorWithInteractable3/Interactable" index="4"]
+offset_left = -31.0415
+offset_top = 105.0
+offset_right = 32.9585
+offset_bottom = 154.0
+
+[node name="HallwayLockedDoorWithInteractable4" type="Node2D" parent="." index="20"]
+position = Vector2(7472.98, 660)
+
+[node name="BigDoor" parent="HallwayLockedDoorWithInteractable4" index="0" instance=ExtResource("6_haloi")]
+position = Vector2(23.0308, 423)
+rotation = 1.57079
+
+[node name="Interactable" parent="HallwayLockedDoorWithInteractable4" index="1" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+position = Vector2(-117.157, 140)
+interactable_resource = SubResource("Resource_ukl1r")
+effect = SubResource("Resource_wpikx")
+targets = [NodePath("../BigDoor")]
+
+[node name="InteractLabel" parent="HallwayLockedDoorWithInteractable4/Interactable" index="4"]
+offset_left = -31.0415
+offset_top = 105.0
+offset_right = 32.9585
+offset_bottom = 154.0
+
+[node name="TogglableLight" parent="." index="21" instance=ExtResource("14_gb71d")]
+position = Vector2(8444.28, 954)
+
+[node name="DarknessEnemy" parent="." index="22" instance=ExtResource("15_4l88l")]
+position = Vector2(1892.53, 1019)
+
+[editable path="StartLevelInteractable"]
+[editable path="HallwayLockedDoorWithInteractable/Interactable"]
+[editable path="HallwayLockedDoorWithInteractable2/Interactable"]
+[editable path="HallwayLockedDoorWithInteractable3/Interactable"]
+[editable path="HallwayLockedDoorWithInteractable4/Interactable"]

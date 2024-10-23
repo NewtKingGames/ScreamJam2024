@@ -9,6 +9,7 @@ enum LightPattern{STATIC, IN_ORDER, BACK_FORTH}
 @export var light_on_duration: float = 4.5
 @export var delay_until_next_light: float = 4
 @export var auto_start_pattern: bool = true
+@export var backwards: bool = false
 var are_all_lights_on: bool = false
 var are_lights_flashing: bool = true
 var light_child_index: int = 0
@@ -18,6 +19,9 @@ var light_child_index_increment: int = 1
 
 
 func _ready() -> void:
+	if backwards:
+		light_child_index = lights.get_child_count() -1
+		light_child_index_increment = -1
 	next_light_child_index = get_next_light_index(light_child_index)
 	total_light_children = lights.get_child_count()
 	toggle_all_lights(are_all_lights_on)
