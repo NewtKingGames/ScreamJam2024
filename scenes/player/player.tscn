@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b30cg7p0ub3k2"]
+[gd_scene load_steps=14 format=3 uid="uid://b30cg7p0ub3k2"]
 
 [ext_resource type="Script" path="res://scenes/player/state_machine.gd" id="1_op30w"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xyncb"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://3h4fuwfm1o0n" path="res://sounds/footstep_three.mp3" id="8_hsjmh"]
 [ext_resource type="AudioStream" uid="uid://cyb0eyra02864" path="res://sounds/footstep_two.mp3" id="9_ioore"]
 [ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="10_o4hhl"]
+[ext_resource type="Texture2D" uid="uid://cnq35xdalbbe3" path="res://sprites/Light.png" id="12_i75qa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytg8p"]
 radius = 64.0
@@ -62,6 +63,15 @@ volume_db = -6.467
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jdo6y")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="AmbientLight" type="PointLight2D" parent="."]
 energy = 2.0
 texture = ExtResource("10_o4hhl")
+
+[node name="ForwardLight" type="PointLight2D" parent="."]
+position = Vector2(167, 9)
+scale = Vector2(1.8034, -1.40512)
+energy = 0.05
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("12_i75qa")
+offset = Vector2(370, -15)
