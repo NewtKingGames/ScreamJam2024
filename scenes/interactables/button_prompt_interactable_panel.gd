@@ -3,7 +3,7 @@ extends Panel
 
 
 @onready var button: Button = %Button
-@onready var rich_text_label: RichTextLabel = $RichTextLabel
+@onready var label: Label = $Label
 
 @export var button_prompt_resource: ButtonPromptInteractable
 
@@ -21,4 +21,4 @@ func _on_button_press():
 		_set_text_label_for_index(new_index)
 	
 func _set_text_label_for_index(index: int) -> void:
-	rich_text_label.text = button_prompt_resource.messages[index]
+	label.text = button_prompt_resource.messages[index]

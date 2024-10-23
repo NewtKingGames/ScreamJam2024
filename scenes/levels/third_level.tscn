@@ -30,7 +30,7 @@ effect_description = ""
 [sub_resource type="Resource" id="Resource_sh8o3"]
 script = ExtResource("9_5y1j4")
 method_name = "open"
-is_repeatable = true
+is_repeatable = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4u0m"]
 size = Vector2(217.277, 20)
@@ -45,7 +45,7 @@ effect_description = ""
 [sub_resource type="Resource" id="Resource_d6mfw"]
 script = ExtResource("9_5y1j4")
 method_name = "open"
-is_repeatable = true
+is_repeatable = false
 
 [sub_resource type="Resource" id="Resource_cnggx"]
 script = ExtResource("13_36t4c")
@@ -117,7 +117,8 @@ backwards = true
 [node name="PaperNote" parent="." index="7" instance=ExtResource("3_bsp3c")]
 position = Vector2(1752.34, 906)
 rotation = 0.615779
-paper_message = "I can't fucking believe it I'm almost out here. Just need to get past the last system locks and then I can open the blast door."
+paper_message = "I can't fucking believe it I'm almost out here.
+Just need to get past the last system locks and then I can open the blast door."
 
 [node name="BloodSplatter" type="Sprite2D" parent="." index="8"]
 position = Vector2(4220.64, 897)
@@ -191,6 +192,7 @@ shape = SubResource("RectangleShape2D_b4u0m")
 
 [node name="EndLevelTenseMusic" type="AudioStreamPlayer" parent="." index="16"]
 stream = ExtResource("11_712wu")
+volume_db = -4.308
 
 [node name="HallwayLockedDoorWithInteractable" type="Node2D" parent="." index="17"]
 position = Vector2(3270.37, 597)
@@ -270,6 +272,9 @@ offset_bottom = 154.0
 
 [node name="DarknessEnemy" parent="." index="21" instance=ExtResource("15_4l88l")]
 position = Vector2(1892.53, 1019)
+
+[node name="FootstepAudioPlayer" parent="DarknessEnemy" index="1"]
+volume_db = 3.0
 
 [node name="LightFlickOff" type="Node2D" parent="." index="22"]
 position = Vector2(8607.5, 954)
@@ -360,3 +365,4 @@ texture_scale = 6.0
 [editable path="HallwayLockedDoorWithInteractable2/Interactable"]
 [editable path="HallwayLockedDoorWithInteractable3/Interactable"]
 [editable path="HallwayLockedDoorWithInteractable4/Interactable"]
+[editable path="DarknessEnemy"]

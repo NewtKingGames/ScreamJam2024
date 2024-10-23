@@ -12,7 +12,7 @@ grow_vertical = 2
 theme = ExtResource("1_133ff")
 script = ExtResource("2_0ie4v")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -27,7 +27,6 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "This is the message"
-scroll_active = false
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
@@ -45,5 +44,6 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(6.00287, 6.00287)
 pivot_offset = Vector2(47, 12)
+theme_override_font_sizes/font_size = 18
 text = "Press Me"
 icon_alignment = 1

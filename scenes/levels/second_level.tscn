@@ -92,8 +92,10 @@ rotation = 1.56966
 visible = true
 
 [node name="IntroPaperNote" parent="." index="5" instance=ExtResource("2_6vd7y")]
-position = Vector2(1317.76, 287)
-paper_message = "Lights in this sector are getting out of hand. Almost feels like they're synced up to some rhythm. 
+position = Vector2(1312.75, 287)
+paper_message = "Lights in this sector are getting out of hand. 
+
+Almost feels like they're synced up to some rhythm. 
 
 Try not to get dizzy going through here."
 
