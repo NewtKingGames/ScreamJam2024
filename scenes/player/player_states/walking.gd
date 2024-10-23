@@ -11,7 +11,7 @@ func enter() -> void:
 
 func process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
-	player.velocity = direction * 400
+	player.velocity = direction * player.speed
 	if not direction:
 		transition_requested.emit(self, State.IDLE)	
 	elapsed_time += delta

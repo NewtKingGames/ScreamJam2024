@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqgydqgclogh7"]
+[gd_scene load_steps=33 format=3 uid="uid://bqgydqgclogh7"]
 
 [ext_resource type="PackedScene" uid="uid://dm3jxvrm5qvls" path="res://scenes/levels/level.tscn" id="1_hq5kr"]
+[ext_resource type="PackedScene" uid="uid://bpu0dpust3w70" path="res://scenes/levels/end_game_scene.tscn" id="2_1n6s6"]
 [ext_resource type="PackedScene" uid="uid://26ufgwsaf0w7" path="res://scenes/structures/hallway_lights_flash.tscn" id="2_yjm6t"]
 [ext_resource type="PackedScene" uid="uid://c5xtvh8dmtuui" path="res://scenes/objects/paper_note.tscn" id="3_bsp3c"]
 [ext_resource type="Texture2D" uid="uid://bb3wbb75fddpa" path="res://resources/scifigraphics/decals/blood.png" id="4_083ex"]
@@ -15,6 +16,9 @@
 [ext_resource type="Script" path="res://custom_resources/button_mash_interactable.gd" id="13_36t4c"]
 [ext_resource type="PackedScene" uid="uid://bqncdno4rb7be" path="res://scenes/lights/togglable_light.tscn" id="14_gb71d"]
 [ext_resource type="PackedScene" uid="uid://b4nsvp7kl23xr" path="res://scenes/enemies/darkness_enemy.tscn" id="15_4l88l"]
+[ext_resource type="Script" path="res://scenes/levels/light_flick_off.gd" id="16_37520"]
+[ext_resource type="Script" path="res://scenes/levels/level_exit_nodes.gd" id="17_74gtb"]
+[ext_resource type="Texture2D" uid="uid://bmr5wvs6hu6x3" path="res://resources/scifigraphics/lights/textures/circle.png" id="17_hsnuq"]
 
 [sub_resource type="Resource" id="Resource_j3jrd"]
 script = ExtResource("8_apcn0")
@@ -72,11 +76,33 @@ script = ExtResource("9_5y1j4")
 method_name = "open"
 is_repeatable = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7vch"]
+size = Vector2(132.163, 20)
+
+[sub_resource type="Resource" id="Resource_vgdkt"]
+script = ExtResource("8_apcn0")
+messages = Array[String](["Open blastdoors?"])
+type = 2
+input_complete_delay = 0.5
+effect_description = ""
+
+[sub_resource type="Resource" id="Resource_flt24"]
+script = ExtResource("9_5y1j4")
+method_name = "open"
+is_repeatable = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnppa"]
+size = Vector2(320.417, 20)
+
 [node name="ThirdLevel" instance=ExtResource("1_hq5kr")]
+next_level = ExtResource("2_1n6s6")
 
 [node name="TileMap" parent="." index="0"]
-layer_0/tile_data = PackedInt32Array(196614, 65536, 2, 196615, 65536, 2, 196616, 65536, 2, 196617, 65536, 2, 196618, 65536, 2, 196619, 65536, 2, 196620, 65536, 2, 196621, 65536, 2, 196622, 65536, 2, 196623, 65536, 2, 196624, 65536, 2, 196625, 65536, 2, 196626, 65536, 2, 196627, 65536, 2, 196628, 65536, 2, 196629, 65536, 2, 131091, 65536, 1, 131092, 65536, 1, 131093, 65536, 1, 65555, 65536, 0, 65556, 65536, 0, 65557, 65536, 0, 65538, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196611, 65536, 1, 196610, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 131076, 65536, 1, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 262146, 65536, 2, 262147, 65536, 2, 262148, 65536, 2, 262149, 131072, 2, 262145, 0, 2, 196609, 0, 1, 131073, 0, 1, 65537, 0, 1, 1, 0, 0, 5, 131072, 0)
-layer_1/tile_data = PackedInt32Array(196616, 262144, 0, 196617, 262144, 0, 65555, 262144, 0, 65556, 262144, 0, 65557, 262144, 0, 196615, 262144, 2, 196614, 262144, 2, 196618, 262144, 2, 196619, 262144, 2, 196620, 262144, 2, 196621, 262144, 2, 196623, 262144, 2, 196622, 262144, 2, 196624, 262144, 2, 196625, 262144, 2, 196626, 262144, 2, 196627, 262144, 2, 196628, 262144, 2, 196629, 262144, 2, 65541, 196608, 2, 5, 327680, 0, 4, 262144, 0, 3, 262144, 0, 2, 262144, 0, 1, 196608, 0, 65537, 196608, 1, 131073, 196608, 1, 196609, 196608, 1, 262145, 196608, 2, 262146, 262144, 0, 262147, 262144, 0, 262148, 262144, 0, 262149, 327680, 2, 196613, 196608, 0)
+layer_0/tile_data = PackedInt32Array(196614, 65536, 2, 196615, 65536, 2, 196616, 65536, 2, 196617, 65536, 2, 196618, 65536, 2, 196619, 65536, 2, 196620, 65536, 2, 196621, 65536, 2, 196622, 65536, 2, 196623, 65536, 2, 196624, 65536, 2, 196625, 65536, 2, 196626, 65536, 2, 196627, 65536, 2, 196628, 65536, 2, 196629, 65536, 2, 131091, 65536, 1, 131092, 65536, 1, 131093, 65536, 1, 65555, 65536, 0, 65556, 65536, 0, 65557, 65536, 0, 65538, 65536, 1, 65539, 65536, 1, 65540, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196611, 65536, 1, 196610, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 131076, 65536, 1, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 262146, 65536, 2, 262147, 65536, 2, 262148, 65536, 2, 262149, 131072, 2, 262145, 0, 2, 196609, 0, 1, 131073, 0, 1, 65537, 0, 1, 1, 0, 0, 5, 131072, 0, 131094, 65536, 1, 131095, 65536, 1, 65558, 65536, 0, 65559, 65536, 0, 196630, 65536, 2, 196631, 65536, 2, 65560, 65536, 0, 131096, 65536, 1, 196632, 65536, 2, 65561, 65536, 0, 131097, 65536, 1, 196633, 65536, 2, 65562, 65536, 0, 131098, 65536, 1, 196634, 65536, 2, 65563, 65536, 0, 131099, 65536, 1, 196635, 65536, 2, 65564, 65536, 0, 131100, 65536, 1, 196636, 65536, 2, 65565, 65536, 0, 131101, 65536, 1, 196637, 65536, 2, 65566, 65536, 0, 131102, 65536, 1, 196638, 65536, 2, 65567, 65536, 0, 131103, 65536, 1, 196639, 65536, 2, 65568, 65536, 0, 131104, 65536, 1, 196640, 65536, 2, 65569, 65536, 0, 131105, 65536, 1, 196641, 65536, 2, 65570, 65536, 0, 131106, 65536, 1, 196642, 65536, 2, 65571, 65536, 0, 131107, 65536, 1, 196643, 65536, 2, 65572, 65536, 0, 131108, 65536, 1, 196644, 65536, 2, 65573, 65536, 0, 131109, 65536, 1, 196645, 65536, 2, 65574, 65536, 0, 131110, 65536, 1, 196646, 65536, 2, 131111, 65536, 1, 131112, 65536, 1, 65575, 65536, 0, 196647, 65536, 2, 65576, 65536, 0, 196648, 65536, 2, 65577, 65536, 0, 131113, 65536, 1, 196649, 65536, 2, 65578, 65536, 0, 131114, 65536, 1, 196650, 65536, 2, 131115, 65536, 1, 131116, 65536, 1, 65579, 65536, 0, 196651, 65536, 2)
+layer_1/tile_data = PackedInt32Array(196616, 262144, 0, 196617, 262144, 0, 65555, 262144, 0, 65556, 262144, 0, 65557, 262144, 0, 196615, 262144, 2, 196614, 262144, 2, 196618, 262144, 2, 196619, 262144, 2, 196620, 262144, 2, 196621, 262144, 2, 196623, 262144, 2, 196622, 262144, 2, 196624, 262144, 2, 196625, 262144, 2, 196626, 262144, 2, 196627, 262144, 2, 196628, 262144, 2, 196629, 262144, 2, 65541, 196608, 2, 5, 327680, 0, 4, 262144, 0, 3, 262144, 0, 2, 262144, 0, 1, 196608, 0, 65537, 196608, 1, 131073, 196608, 1, 196609, 196608, 1, 262145, 196608, 2, 262146, 262144, 0, 262147, 262144, 0, 262148, 262144, 0, 262149, 327680, 2, 196613, 196608, 0, 65558, 262144, 0, 65559, 262144, 0, 196630, 262144, 0, 196631, 262144, 0, 65560, 262144, 0, 65561, 262144, 0, 196632, 262144, 0, 196633, 262144, 0, 65562, 262144, 0, 65563, 262144, 0, 196634, 262144, 0, 196635, 262144, 0, 65564, 262144, 0, 196636, 262144, 0, 65565, 262144, 0, 196637, 262144, 2, 65566, 262144, 0, 196638, 262144, 2, 65567, 262144, 0, 196639, 262144, 2, 65568, 262144, 0, 196640, 262144, 2, 65569, 262144, 0, 196641, 262144, 2, 65570, 262144, 0, 196642, 262144, 2, 65571, 262144, 0, 196643, 262144, 2, 65572, 262144, 0, 196644, 262144, 2, 65573, 262144, 0, 196645, 262144, 2, 65574, 262144, 0, 196646, 262144, 2, 65575, 262144, 0, 196647, 262144, 2, 65576, 262144, 0, 196648, 262144, 2, 65577, 262144, 0, 196649, 262144, 2, 65578, 262144, 0, 196650, 262144, 2, 65579, 262144, 0, 196651, 262144, 2)
+
+[node name="Player" parent="." index="1"]
+position = Vector2(1346.8, 986)
 
 [node name="DirectionalLight2D" parent="." index="4"]
 visible = true
@@ -242,11 +268,92 @@ offset_top = 105.0
 offset_right = 32.9585
 offset_bottom = 154.0
 
-[node name="TogglableLight" parent="." index="21" instance=ExtResource("14_gb71d")]
-position = Vector2(8444.28, 954)
-
-[node name="DarknessEnemy" parent="." index="22" instance=ExtResource("15_4l88l")]
+[node name="DarknessEnemy" parent="." index="21" instance=ExtResource("15_4l88l")]
 position = Vector2(1892.53, 1019)
+
+[node name="LightFlickOff" type="Node2D" parent="." index="22"]
+position = Vector2(8607.5, 954)
+script = ExtResource("16_37520")
+
+[node name="TogglableLight" parent="LightFlickOff" index="0" instance=ExtResource("14_gb71d")]
+
+[node name="Area2D" type="Area2D" parent="LightFlickOff" index="1"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightFlickOff/Area2D" index="0"]
+position = Vector2(-136.183, 28)
+scale = Vector2(1.29397, 34.8337)
+shape = SubResource("RectangleShape2D_o7vch")
+
+[node name="LightFlickOff2" type="Node2D" parent="." index="23"]
+position = Vector2(10676.3, 954)
+script = ExtResource("16_37520")
+
+[node name="TogglableLight" parent="LightFlickOff2" index="0" instance=ExtResource("14_gb71d")]
+
+[node name="Area2D" type="Area2D" parent="LightFlickOff2" index="1"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightFlickOff2/Area2D" index="0"]
+position = Vector2(-136.183, 28)
+scale = Vector2(1.29397, 34.8337)
+shape = SubResource("RectangleShape2D_o7vch")
+
+[node name="LightFlickOff3" type="Node2D" parent="." index="24"]
+position = Vector2(13033.4, 954)
+script = ExtResource("16_37520")
+
+[node name="TogglableLight" parent="LightFlickOff3" index="0" instance=ExtResource("14_gb71d")]
+
+[node name="Area2D" type="Area2D" parent="LightFlickOff3" index="1"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightFlickOff3/Area2D" index="0"]
+position = Vector2(-136.183, 28)
+scale = Vector2(1.29397, 34.8337)
+shape = SubResource("RectangleShape2D_o7vch")
+
+[node name="LevelExitDoor" parent="." index="25" instance=ExtResource("6_haloi")]
+position = Vector2(15280.4, 990)
+rotation = -1.57079
+scale = Vector2(1.158, 1.158)
+
+[node name="LevelExitInteractable" parent="." index="26" node_paths=PackedStringArray("targets") instance=ExtResource("7_2jfq7")]
+position = Vector2(15017.1, 1244)
+interactable_resource = SubResource("Resource_vgdkt")
+effect = SubResource("Resource_flt24")
+targets = [NodePath("../LevelExitDoor")]
+
+[node name="LevelExitNodes" type="Node2D" parent="." index="27"]
+position = Vector2(15774.1, 1023)
+script = ExtResource("17_74gtb")
+
+[node name="Area2D" type="Area2D" parent="LevelExitNodes" index="0"]
+position = Vector2(-64.0856, 0)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExitNodes/Area2D" index="0"]
+position = Vector2(138.184, -6)
+scale = Vector2(-2.18846, 74.5083)
+shape = SubResource("RectangleShape2D_bnppa")
+
+[node name="Lights" type="Node2D" parent="LevelExitNodes" index="1"]
+
+[node name="PointLight2D" type="PointLight2D" parent="LevelExitNodes/Lights" index="0"]
+position = Vector2(16.0214, -162)
+energy = 0.0
+texture = ExtResource("17_hsnuq")
+
+[node name="PointLight2D2" type="PointLight2D" parent="LevelExitNodes/Lights" index="1"]
+position = Vector2(0, 221)
+energy = 0.0
+texture = ExtResource("17_hsnuq")
+
+[node name="PointLight2D3" type="PointLight2D" parent="LevelExitNodes/Lights" index="2"]
+position = Vector2(0, -4)
+energy = 0.0
+texture = ExtResource("17_hsnuq")
+texture_scale = 6.0
 
 [editable path="StartLevelInteractable"]
 [editable path="HallwayLockedDoorWithInteractable/Interactable"]

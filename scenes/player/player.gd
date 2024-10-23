@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
 var interactable_near: InteractableNode
+var speed: float = 400
 var player_light_count: int = 0 : 
 	set(value):
 		if value == 0:
